@@ -612,8 +612,8 @@
     }
     .resultados-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: auto;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 340px 340px;
       gap: 16px;
     }
     .hero-cta-buttons {
@@ -663,14 +663,16 @@
       }
       .resultados-grid {
         grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 260px 260px 260px;
       }
       .resultados-grid .catalog-item {
         grid-row: span 1 !important;
         grid-column: span 1 !important;
-        aspect-ratio: 4/3 !important;
       }
-      .resultados-grid .catalog-item[style*="grid-column:span 2"] {
-        grid-column: span 2;
+      /* Primera imagen ocupa columna completa en tablet */
+      .resultados-grid .catalog-item:first-child {
+        grid-column: span 2 !important;
+        grid-row: span 1 !important;
       }
     }
 
@@ -740,13 +742,15 @@
       }
 
       .resultados-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 12px;
       }
-      .resultados-grid .catalog-item {
+      .resultados-grid .catalog-item,
+      .resultados-grid .catalog-item:first-child {
         grid-row: span 1 !important;
         grid-column: span 1 !important;
-        aspect-ratio: 4/3 !important;
+        aspect-ratio: 16/9 !important;
       }
 
       .testimonial-card {
@@ -793,12 +797,14 @@
         text-align: left;
       }
       .resultados-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
       }
-      .resultados-grid .catalog-item {
+      .resultados-grid .catalog-item,
+      .resultados-grid .catalog-item:first-child {
         grid-row: span 1 !important;
         grid-column: span 1 !important;
-        aspect-ratio: 4/3 !important;
+        aspect-ratio: 16/9 !important;
       }
     }
   </style>
@@ -1159,31 +1165,36 @@
       </div>
 
       <div class="resultados-grid" data-reveal>
-        <div class="catalog-item" style="grid-row:span 2;aspect-ratio:auto;">
-          <img src="RESULTADOS/EDITORIAL%20MODA.png" style="min-height:300px;object-fit:cover;" alt="Editorial Moda" />
+        <!-- Col 1: imagen portrait abarcando 2 filas -->
+        <div class="catalog-item" style="grid-row:span 2;">
+          <img src="RESULTADOS/EDITORIAL%20MODA.png" style="object-fit:cover;" alt="Editorial Moda" />
           <div class="catalog-overlay"></div>
           <div class="catalog-color"></div>
           <div class="catalog-label">Editorial · Moda</div>
         </div>
-        <div class="catalog-item" style="aspect-ratio:4/3;">
+        <!-- Col 2, fila 1 -->
+        <div class="catalog-item">
           <img src="RESULTADOS/ASISTENCIA%20CREATIVA.png" alt="Asistencia Creativa" style="object-fit:cover;" />
           <div class="catalog-overlay"></div>
           <div class="catalog-color"></div>
           <div class="catalog-label">Asistencia Creativa</div>
         </div>
-        <div class="catalog-item" style="grid-column:span 2;aspect-ratio:auto;">
-          <img src="RESULTADOS/PRODUCCI%C3%93N%20COMPLETA.png" style="min-height:180px;object-fit:cover;" alt="Producción Completa" />
+        <!-- Col 3, fila 1 -->
+        <div class="catalog-item">
+          <img src="RESULTADOS/PRODUCCI%C3%93N%20COMPLETA.png" style="object-fit:cover;" alt="Producción Completa" />
           <div class="catalog-overlay"></div>
           <div class="catalog-color"></div>
           <div class="catalog-label">Producción Completa</div>
         </div>
-        <div class="catalog-item" style="aspect-ratio:4/3;">
+        <!-- Col 2, fila 2 -->
+        <div class="catalog-item">
           <img src="RESULTADOS/CATALOGOS%20ECOMMERCE.png" alt="Catálogos Ecommerce" style="object-fit:cover;" />
           <div class="catalog-overlay"></div>
           <div class="catalog-color"></div>
           <div class="catalog-label">Catálogos · Ecommerce</div>
         </div>
-        <div class="catalog-item" style="aspect-ratio:4/3;">
+        <!-- Col 3, fila 2 -->
+        <div class="catalog-item">
           <img src="RESULTADOS/CAMPA%C3%91AS%20DE%20VIDEO.png" alt="Campañas de Video" style="object-fit:cover;" />
           <div class="catalog-overlay"></div>
           <div class="catalog-color"></div>
