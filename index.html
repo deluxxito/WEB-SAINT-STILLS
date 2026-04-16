@@ -24,8 +24,8 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #05050F;
-      color: var(--white);
+      background: #FFFFFF;
+      color: #111111;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
@@ -63,14 +63,14 @@
       transition: background 0.4s ease, backdrop-filter 0.4s ease, padding 0.3s ease;
     }
     nav.scrolled {
-      background: rgba(5,5,15,0.88);
+      background: rgba(255,255,255,0.95);
       backdrop-filter: blur(24px);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
       padding: 14px 0;
     }
     .nav-link {
       font-size: 0.875rem;
-      color: rgba(255,255,255,0.45);
+      color: rgba(0,0,0,0.45);
       text-decoration: none;
       position: relative;
       transition: color 0.25s ease;
@@ -83,7 +83,7 @@
       background: var(--royal-light);
       transition: width 0.3s cubic-bezier(.34,1.56,.64,1);
     }
-    .nav-link:hover { color: #fff; }
+    .nav-link:hover { color: #000; }
     .nav-link:hover::after { width: 100%; }
 
     /* ── HAMBURGER ── */
@@ -101,7 +101,7 @@
       display: block;
       width: 22px;
       height: 1.5px;
-      background: rgba(255,255,255,0.7);
+      background: rgba(0,0,0,0.7);
       transition: transform 0.3s ease, opacity 0.3s ease;
       border-radius: 2px;
     }
@@ -114,7 +114,7 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(5,5,15,0.97);
+      background: rgba(255,255,255,0.98);
       backdrop-filter: blur(24px);
       z-index: 400;
       flex-direction: column;
@@ -131,11 +131,11 @@
     .mobile-menu a {
       font-family: 'Instrument Serif', serif;
       font-size: 2.2rem;
-      color: rgba(255,255,255,0.7);
+      color: rgba(0,0,0,0.65);
       text-decoration: none;
       transition: color 0.2s ease;
     }
-    .mobile-menu a:hover { color: #fff; }
+    .mobile-menu a:hover { color: #000; }
 
     /* ── BUTTONS ── */
     .btn-solid {
@@ -171,9 +171,9 @@
       border-radius: 9999px;
       font-size: 0.875rem;
       font-weight: 500;
-      color: var(--white);
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.2);
+      color: #111111;
+      background: rgba(0,0,0,0.04);
+      border: 1px solid rgba(0,0,0,0.18);
       backdrop-filter: blur(12px);
       transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s cubic-bezier(.34,1.56,.64,1);
       cursor: pointer;
@@ -181,8 +181,8 @@
       white-space: nowrap;
     }
     .btn-outline:hover {
-      border-color: rgba(255,255,255,0.6);
-      background: rgba(255,255,255,0.08);
+      border-color: rgba(0,0,0,0.4);
+      background: rgba(0,0,0,0.06);
       transform: translateY(-2px);
     }
     .btn-outline:active { transform: translateY(0); }
@@ -197,7 +197,7 @@
       font-weight: 500;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
+      color: rgba(0,0,0,0.4);
       margin-bottom: 20px;
     }
     .section-label::before {
@@ -209,7 +209,7 @@
 
     /* ── GRADIENT TEXT ── */
     .gradient-text {
-      background: linear-gradient(135deg, #fff 0%, #a0a0ff 55%, var(--royal-light) 100%);
+      background: linear-gradient(135deg, #111 0%, var(--royal) 55%, var(--royal-light) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -221,13 +221,13 @@
       font-size: clamp(2.8rem, 6vw, 4.8rem);
       letter-spacing: -0.04em;
       line-height: 1;
-      background: linear-gradient(135deg, #fff 30%, var(--royal-light) 100%);
+      background: linear-gradient(135deg, #111 30%, var(--royal-light) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     /* ── DIVIDER ── */
-    .divider { height: 1px; background: linear-gradient(to right, transparent, rgba(255,255,255,0.07), transparent); }
+    .divider { height: 1px; background: linear-gradient(to right, transparent, rgba(0,0,0,0.1), transparent); }
     .glow-line { height: 1px; background: linear-gradient(to right, transparent, var(--royal-light), var(--royal), transparent); opacity: 0.4; }
 
     /* ── MARQUEE ── */
@@ -248,7 +248,7 @@
       gap: 64px;
       flex-shrink: 0;
     }
-    .marquee-sep { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.2); }
+    .marquee-sep { width: 4px; height: 4px; border-radius: 50%; background: rgba(0,0,0,0.2); }
 
     /* ── SERVICE CARD ── */
     .service-row {
@@ -257,7 +257,7 @@
       gap: 40px;
       align-items: start;
       padding: 48px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(0,0,0,0.07);
       transition: background 0.3s ease;
       position: relative;
     }
@@ -276,7 +276,7 @@
     .service-num {
       font-family: 'Instrument Serif', serif;
       font-size: 3rem;
-      color: rgba(255,255,255,0.08);
+      color: rgba(0,0,0,0.1);
       letter-spacing: -0.04em;
       line-height: 1;
       transition: color 0.3s ease;
@@ -311,7 +311,7 @@
       font-weight: 500;
       border: 1px solid rgba(27,27,245,0.35);
       background: rgba(27,27,245,0.1);
-      color: rgba(255,255,255,0.65);
+      color: rgba(27,27,245,0.8);
       letter-spacing: 0.03em;
       transition: background 0.2s, border-color 0.2s;
     }
@@ -341,7 +341,7 @@
       pointer-events: none;
     }
     .tag-price .tag-qty {
-      color: rgba(255,255,255,0.55);
+      color: rgba(0,0,0,0.5);
       font-weight: 500;
       font-size: 0.75rem;
     }
@@ -375,8 +375,8 @@
       padding: 0 4px;
     }
     .testimonial-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
+      background: rgba(0,0,0,0.02);
+      border: 1px solid rgba(0,0,0,0.07);
       border-radius: 24px;
       padding: 48px;
       position: relative;
@@ -388,15 +388,15 @@
       top: -20px; left: 32px;
       font-family: 'Instrument Serif', serif;
       font-size: 12rem;
-      color: rgba(27,27,245,0.08);
+      color: rgba(27,27,245,0.12);
       line-height: 1;
       pointer-events: none;
     }
     .slider-arrow {
       width: 48px; height: 48px;
       border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(0,0,0,0.12);
+      background: rgba(0,0,0,0.03);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -413,7 +413,7 @@
     .slider-dot {
       width: 6px; height: 6px;
       border-radius: 9999px;
-      background: rgba(255,255,255,0.2);
+      background: rgba(0,0,0,0.18);
       transition: background 0.3s ease, width 0.3s cubic-bezier(.34,1.56,.64,1);
       cursor: pointer;
     }
@@ -433,24 +433,24 @@
       gap: 12px;
       padding: 12px 0;
       font-size: 0.9rem;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
     }
     .compare-item:last-child { border-bottom: none; }
 
     /* ── CONTACT FORM ── */
     .form-field {
       width: 100%;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(0,0,0,0.03);
+      border: 1px solid rgba(0,0,0,0.12);
       border-radius: 12px;
       padding: 14px 18px;
-      color: #fff;
+      color: #111;
       font-size: 0.9375rem;
       font-family: 'Inter', sans-serif;
       outline: none;
       transition: border-color 0.25s ease, background 0.25s ease;
     }
-    .form-field::placeholder { color: rgba(255,255,255,0.25); }
+    .form-field::placeholder { color: rgba(0,0,0,0.3); }
     .form-field:focus {
       border-color: rgba(27,27,245,0.5);
       background: rgba(27,27,245,0.05);
@@ -505,7 +505,7 @@
       display: flex;
       gap: 24px;
       padding: 28px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(0,0,0,0.07);
       transition: padding-left 0.3s ease;
     }
     .step-item:last-child { border-bottom: none; }
@@ -592,23 +592,23 @@
       padding: 24px 0;
       font-size: 0.9375rem;
       font-weight: 500;
-      color: rgba(255,255,255,0.75);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      color: rgba(0,0,0,0.7);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
       transition: color 0.2s ease;
     }
     details summary::-webkit-details-marker { display: none; }
-    details summary:hover { color: #fff; }
-    details[open] summary { color: #fff; border-color: rgba(27,27,245,0.25); }
+    details summary:hover { color: #000; }
+    details[open] summary { color: #000; border-color: rgba(27,27,245,0.25); }
     .faq-answer {
       padding: 16px 0 24px;
       font-size: 0.9375rem;
-      color: rgba(250,250,250,0.5);
+      color: rgba(0,0,0,0.55);
       line-height: 1.75;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
     }
     .chevron {
       width: 22px; height: 22px;
-      border: 1px solid rgba(255,255,255,0.15);
+      border: 1px solid rgba(0,0,0,0.15);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -637,13 +637,13 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
       padding-top: 32px;
-      border-top: 1px solid rgba(255,255,255,0.06);
+      border-top: 1px solid rgba(0,0,0,0.08);
     }
     .stats-strip-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1px;
-      background: rgba(255,255,255,0.06);
+      background: rgba(0,0,0,0.07);
       border-radius: 20px;
       overflow: hidden;
     }
@@ -769,7 +769,7 @@
       }
       .stats-strip-grid > div {
         padding: 28px 20px !important;
-        border-bottom: 1px solid rgba(255,255,255,0.06);
+        border-bottom: 1px solid rgba(0,0,0,0.08);
       }
       .stats-strip-grid > div:last-child { border-bottom: none; }
 
@@ -1031,7 +1031,7 @@
         <div class="logo-pill">
           <img src="brand_assets/logo.jpg" alt="SAINTS STILLS" class="logo-img" />
         </div>
-        <span style="font-size:0.78rem;font-weight:500;letter-spacing:0.1em;color:rgba(255,255,255,0.35);text-transform:uppercase;">SAINT STILLS</span>
+        <span style="font-size:0.78rem;font-weight:500;letter-spacing:0.1em;color:rgba(0,0,0,0.45);text-transform:uppercase;">SAINT STILLS</span>
       </a>
       <div class="nav-desktop" style="display:flex;align-items:center;gap:36px;">
         <a href="#servicios" class="nav-link">Servicios</a>
@@ -1062,12 +1062,12 @@
       <div>
         <div class="section-label" data-reveal>Agencia de Producción Visual con IA</div>
 
-        <h1 class="font-display" data-reveal data-delay="1" style="font-size:clamp(3rem,7vw,6rem);color:#fff;line-height:1.0;margin-bottom:28px;">
+        <h1 class="font-display" data-reveal data-delay="1" style="font-size:clamp(3rem,7vw,6rem);color:#111;line-height:1.0;margin-bottom:28px;">
           Tu catálogo,<br/>
           <span class="gradient-text font-display" style="font-style:italic;">listo para vender.</span>
         </h1>
 
-        <p data-reveal data-delay="2" style="font-size:clamp(0.95rem,1.8vw,1.15rem);max-width:520px;margin-bottom:40px;color:rgba(250,250,250,0.55);line-height:1.8;">
+        <p data-reveal data-delay="2" style="font-size:clamp(0.95rem,1.8vw,1.15rem);max-width:520px;margin-bottom:40px;color:rgba(0,0,0,0.6);line-height:1.8;">
           Catálogo listo para vender en menos de 7 días hábiles — más rápido y más rentable que una producción tradicional. Modelos personalizados, dirección creativa y fondos a medida.
         </p>
 
@@ -1079,15 +1079,15 @@
         <div data-reveal data-delay="4" class="hero-stats-grid">
           <div>
             <div class="stat-num">-<span class="count-up" data-target="80">0</span>%</div>
-            <p style="font-size:0.78rem;margin-top:6px;color:rgba(255,255,255,0.35);line-height:1.5;">reducción en costos</p>
+            <p style="font-size:0.78rem;margin-top:6px;color:rgba(0,0,0,0.45);line-height:1.5;">reducción en costos</p>
           </div>
           <div>
             <div class="stat-num"><span class="count-up" data-target="10">0</span>×</div>
-            <p style="font-size:0.78rem;margin-top:6px;color:rgba(255,255,255,0.35);line-height:1.5;">más rápido que producción tradicional</p>
+            <p style="font-size:0.78rem;margin-top:6px;color:rgba(0,0,0,0.45);line-height:1.5;">más rápido que producción tradicional</p>
           </div>
           <div>
             <div class="stat-num">100%</div>
-            <p style="font-size:0.78rem;margin-top:6px;color:rgba(255,255,255,0.35);line-height:1.5;">consistencia visual</p>
+            <p style="font-size:0.78rem;margin-top:6px;color:rgba(0,0,0,0.45);line-height:1.5;">consistencia visual</p>
           </div>
         </div>
       </div>
@@ -1129,11 +1129,11 @@
   <div class="glow-line"></div>
 
   <!-- ══════════ MARQUEE ══════════ -->
-  <section style="padding:36px 0;overflow:hidden;background:rgba(255,255,255,0.01);">
-    <p style="text-align:center;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:24px;">Trabajamos con marcas en</p>
+  <section style="padding:36px 0;overflow:hidden;background:rgba(0,0,0,0.01);">
+    <p style="text-align:center;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(0,0,0,0.3);margin-bottom:24px;">Trabajamos con marcas en</p>
     <div style="overflow:hidden;mask:linear-gradient(to right,transparent 0%,black 10%,black 90%,transparent 100%);">
       <div class="marquee-track">
-        <div class="marquee-item" style="font-size:0.85rem;font-weight:600;letter-spacing:0.1em;color:rgba(255,255,255,0.25);">
+        <div class="marquee-item" style="font-size:0.85rem;font-weight:600;letter-spacing:0.1em;color:rgba(0,0,0,0.35);">
           <span>MODA</span><span class="marquee-sep"></span>
           <span>BELLEZA</span><span class="marquee-sep"></span>
           <span>HOGAR</span><span class="marquee-sep"></span>
@@ -1145,7 +1145,7 @@
           <span>CALZADO</span><span class="marquee-sep"></span>
           <span>ACCESORIOS</span><span class="marquee-sep"></span>
         </div>
-        <div class="marquee-item" aria-hidden="true" style="font-size:0.85rem;font-weight:600;letter-spacing:0.1em;color:rgba(255,255,255,0.25);">
+        <div class="marquee-item" aria-hidden="true" style="font-size:0.85rem;font-weight:600;letter-spacing:0.1em;color:rgba(0,0,0,0.35);">
           <span>MODA</span><span class="marquee-sep"></span>
           <span>BELLEZA</span><span class="marquee-sep"></span>
           <span>HOGAR</span><span class="marquee-sep"></span>
@@ -1167,17 +1167,17 @@
   <section style="padding:80px 0;">
     <div class="max-w-7xl mx-auto px-6">
       <div class="stats-strip-grid">
-        <div data-reveal style="padding:40px;background:#05050F;text-align:center;">
+        <div data-reveal style="padding:40px;background:#ffffff;text-align:center;">
           <div class="stat-num" style="margin-bottom:10px;display:block;">+<span class="count-up" data-target="75">0</span></div>
-          <p style="font-size:0.875rem;color:rgba(255,255,255,0.4);">Proyectos completados</p>
+          <p style="font-size:0.875rem;color:rgba(0,0,0,0.5);">Proyectos completados</p>
         </div>
-        <div data-reveal data-delay="2" style="padding:40px;background:#05050F;text-align:center;">
+        <div data-reveal data-delay="2" style="padding:40px;background:#ffffff;text-align:center;">
           <div class="stat-num" style="margin-bottom:10px;display:block;"><span class="count-up" data-target="5">0</span>–7</div>
-          <p style="font-size:0.875rem;color:rgba(255,255,255,0.4);">Días hábiles de entrega</p>
+          <p style="font-size:0.875rem;color:rgba(0,0,0,0.5);">Días hábiles de entrega</p>
         </div>
-        <div data-reveal data-delay="3" style="padding:40px;background:#05050F;text-align:center;">
+        <div data-reveal data-delay="3" style="padding:40px;background:#ffffff;text-align:center;">
           <div class="stat-num" style="margin-bottom:10px;display:block;"><span class="count-up" data-target="95">0</span>%</div>
-          <p style="font-size:0.875rem;color:rgba(255,255,255,0.4);">Tasa de satisfacción</p>
+          <p style="font-size:0.875rem;color:rgba(0,0,0,0.5);">Tasa de satisfacción</p>
         </div>
       </div>
     </div>
@@ -1193,12 +1193,12 @@
       <div class="services-header-grid">
         <div>
           <div class="section-label" data-reveal>Servicios</div>
-          <h2 class="font-display" data-reveal data-delay="1" style="font-size:clamp(2.2rem,5vw,4rem);color:#fff;line-height:1.05;">
+          <h2 class="font-display" data-reveal data-delay="1" style="font-size:clamp(2.2rem,5vw,4rem);color:#111;line-height:1.05;">
             De una foto a un <span class="gradient-text font-display" style="font-style:italic;">sistema visual escalable.</span>
           </h2>
         </div>
         <div data-reveal data-delay="2" style="align-self:end;">
-          <p style="font-size:1rem;color:rgba(255,255,255,0.5);max-width:460px;line-height:1.8;">Producción visual con IA de alto nivel, adaptada a cada marca. Tú nos brindas imágenes básicas de tu producto — nosotros hacemos el resto. ¿No tienes fotos de tu producto? Nosotros te ayudamos.</p>
+          <p style="font-size:1rem;color:rgba(0,0,0,0.55);max-width:460px;line-height:1.8;">Producción visual con IA de alto nivel, adaptada a cada marca. Tú nos brindas imágenes básicas de tu producto — nosotros hacemos el resto. ¿No tienes fotos de tu producto? Nosotros te ayudamos.</p>
         </div>
       </div>
 
@@ -1206,8 +1206,8 @@
         <div class="service-row" data-reveal>
           <div class="service-num">01</div>
           <div>
-            <h3 style="font-size:1.375rem;font-weight:600;color:#fff;margin-bottom:12px;">Ecommerce · Catálogos de Producto</h3>
-            <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);margin-bottom:20px;">Imágenes de producto sobre fondo limpio o en escena, con luz, sombras y ángulos profesionales. Desde S/89 por producto según volumen.</p>
+            <h3 style="font-size:1.375rem;font-weight:600;color:#111;margin-bottom:12px;">Ecommerce · Catálogos de Producto</h3>
+            <p style="font-size:0.9rem;color:rgba(0,0,0,0.55);margin-bottom:20px;">Imágenes de producto sobre fondo limpio o en escena, con luz, sombras y ángulos profesionales. Desde S/89 por producto según volumen.</p>
             <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;">
               <span class="tag-price"><span class="tag-qty">5–10 pcs</span><span class="tag-val">S/99</span><span class="tag-qty">por producto</span></span>
               <span class="tag-price"><span class="tag-qty">10–15 pcs</span><span class="tag-val">S/95</span><span class="tag-qty">por producto</span></span>
@@ -1223,8 +1223,8 @@
         <div class="service-row" data-reveal>
           <div class="service-num">02</div>
           <div>
-            <h3 style="font-size:1.375rem;font-weight:600;color:#fff;margin-bottom:12px;">Editorial · Producción de Moda</h3>
-            <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);margin-bottom:20px;">Desde S/199 por producto. Incluye fondo personalizado + 3 modelos. Defines el mood, nosotros ejecutamos la sesión entera.</p>
+            <h3 style="font-size:1.375rem;font-weight:600;color:#111;margin-bottom:12px;">Editorial · Producción de Moda</h3>
+            <p style="font-size:0.9rem;color:rgba(0,0,0,0.55);margin-bottom:20px;">Desde S/199 por producto. Incluye fondo personalizado + 3 modelos. Defines el mood, nosotros ejecutamos la sesión entera.</p>
             <div style="display:flex;gap:8px;flex-wrap:wrap;">
               <span class="tag">Fondo personalizado</span>
               <span class="tag">3 modelos incluidos</span>
@@ -1240,8 +1240,8 @@
         <div class="service-row" data-reveal>
           <div class="service-num">03</div>
           <div>
-            <h3 style="font-size:1.375rem;font-weight:600;color:#fff;margin-bottom:12px;">Campaña · Producción Completa</h3>
-            <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);margin-bottom:20px;">Concepto, ejecución y piezas alineadas a tu marca. Desde la idea hasta el arte final, todo bajo una dirección integral.</p>
+            <h3 style="font-size:1.375rem;font-weight:600;color:#111;margin-bottom:12px;">Campaña · Producción Completa</h3>
+            <p style="font-size:0.9rem;color:rgba(0,0,0,0.55);margin-bottom:20px;">Concepto, ejecución y piezas alineadas a tu marca. Desde la idea hasta el arte final, todo bajo una dirección integral.</p>
             <div style="display:flex;gap:8px;flex-wrap:wrap;">
               <span class="tag">Cotización personalizada</span>
               <span class="tag">Visual system</span>
@@ -1258,8 +1258,8 @@
         <div class="service-row" data-reveal>
           <div class="service-num">04</div>
           <div>
-            <h3 style="font-size:1.375rem;font-weight:600;color:#fff;margin-bottom:12px;">Video · Short Campaigns IA</h3>
-            <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);margin-bottom:20px;">Piezas visuales con narrativa, pensadas para elevar tu contenido. Del guión visual a la edición final, en formato para redes.</p>
+            <h3 style="font-size:1.375rem;font-weight:600;color:#111;margin-bottom:12px;">Video · Short Campaigns IA</h3>
+            <p style="font-size:0.9rem;color:rgba(0,0,0,0.55);margin-bottom:20px;">Piezas visuales con narrativa, pensadas para elevar tu contenido. Del guión visual a la edición final, en formato para redes.</p>
             <div style="display:flex;gap:8px;flex-wrap:wrap;">
               <span class="tag">Cotización personalizada</span>
               <span class="tag">Guión visual</span>
@@ -1276,8 +1276,8 @@
         <div class="service-row" data-reveal style="border-bottom:none;">
           <div class="service-num">05</div>
           <div>
-            <h3 style="font-size:1.375rem;font-weight:600;color:#fff;margin-bottom:12px;">Dirección · Asistencia Creativa</h3>
-            <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);margin-bottom:20px;">Si no tienes claro el camino, lo construimos contigo. Definimos estética, concepto y línea visual para que tu marca hable con coherencia.</p>
+            <h3 style="font-size:1.375rem;font-weight:600;color:#111;margin-bottom:12px;">Dirección · Asistencia Creativa</h3>
+            <p style="font-size:0.9rem;color:rgba(0,0,0,0.55);margin-bottom:20px;">Si no tienes claro el camino, lo construimos contigo. Definimos estética, concepto y línea visual para que tu marca hable con coherencia.</p>
             <div style="display:flex;gap:8px;flex-wrap:wrap;">
               <span class="tag">Cotización personalizada</span>
               <span class="tag">Concepto</span>
@@ -1304,10 +1304,10 @@
       <div class="proceso-grid">
         <div>
           <div class="section-label" data-reveal>Proceso</div>
-          <h2 class="font-display" data-reveal data-delay="1" style="font-size:clamp(2rem,4.5vw,3.5rem);color:#fff;margin-bottom:20px;line-height:1.05;">
+          <h2 class="font-display" data-reveal data-delay="1" style="font-size:clamp(2rem,4.5vw,3.5rem);color:#111;margin-bottom:20px;line-height:1.05;">
             <span class="gradient-text font-display" style="font-style:italic;">De producto a visuales que convierten</span>
           </h2>
-          <p data-reveal data-delay="2" style="font-size:0.9375rem;color:rgba(255,255,255,0.5);margin-bottom:40px;max-width:380px;line-height:1.8;">Nuestro flujo está diseñado para transformar tus ideas en visuales que venden. Tú defines el mood, nosotros lo producimos.</p>
+          <p data-reveal data-delay="2" style="font-size:0.9375rem;color:rgba(0,0,0,0.55);margin-bottom:40px;max-width:380px;line-height:1.8;">Nuestro flujo está diseñado para transformar tus ideas en visuales que venden. Tú defines el mood, nosotros lo producimos.</p>
           <div data-reveal data-delay="3">
             <a href="https://wa.me/51912149320?text=Hola,%20quiero%20empezar%20un%20proyecto%20de%20catálogo%20con%20IA" class="btn-solid">Escríbenos ahora →</a>
           </div>
@@ -1317,29 +1317,29 @@
           <div class="step-item" data-reveal>
             <div class="step-circle">1</div>
             <div>
-              <h4 style="font-size:1rem;font-weight:600;color:#fff;margin-bottom:8px;">Reunión & Dirección</h4>
-              <p style="font-size:0.9rem;color:rgba(255,255,255,0.45);">Agendamos una llamada. Nos cuentas qué quieres lograr, vemos tus productos, referencias y la estética que buscas. Con esto ya podemos iniciar.</p>
+              <h4 style="font-size:1rem;font-weight:600;color:#111;margin-bottom:8px;">Reunión & Dirección</h4>
+              <p style="font-size:0.9rem;color:rgba(0,0,0,0.55);">Agendamos una llamada. Nos cuentas qué quieres lograr, vemos tus productos, referencias y la estética que buscas. Con esto ya podemos iniciar.</p>
             </div>
           </div>
           <div class="step-item" data-reveal data-delay="1">
             <div class="step-circle">2</div>
             <div>
-              <h4 style="font-size:1rem;font-weight:600;color:#fff;margin-bottom:8px;">Dirección Visual IA</h4>
-              <p style="font-size:0.9rem;color:rgba(255,255,255,0.45);">Convertimos tu idea en visual. Definimos estilo, escenas y modelos. Generamos primeras propuestas y te mostramos opciones para elegir.</p>
+              <h4 style="font-size:1rem;font-weight:600;color:#111;margin-bottom:8px;">Dirección Visual IA</h4>
+              <p style="font-size:0.9rem;color:rgba(0,0,0,0.55);">Convertimos tu idea en visual. Definimos estilo, escenas y modelos. Generamos primeras propuestas y te mostramos opciones para elegir.</p>
             </div>
           </div>
           <div class="step-item" data-reveal data-delay="2">
             <div class="step-circle">3</div>
             <div>
-              <h4 style="font-size:1rem;font-weight:600;color:#fff;margin-bottom:8px;">Ajustes & Refinamiento</h4>
-              <p style="font-size:0.9rem;color:rgba(255,255,255,0.45);">Lo llevamos a donde lo quieres. Ajustamos color, composición, producto y detalles hasta alcanzar el resultado que buscas.</p>
+              <h4 style="font-size:1rem;font-weight:600;color:#111;margin-bottom:8px;">Ajustes & Refinamiento</h4>
+              <p style="font-size:0.9rem;color:rgba(0,0,0,0.55);">Lo llevamos a donde lo quieres. Ajustamos color, composición, producto y detalles hasta alcanzar el resultado que buscas.</p>
             </div>
           </div>
           <div class="step-item" data-reveal data-delay="3">
             <div class="step-circle">4</div>
             <div>
-              <h4 style="font-size:1rem;font-weight:600;color:#fff;margin-bottom:8px;">Entrega Final</h4>
-              <p style="font-size:0.9rem;color:rgba(255,255,255,0.45);">Listo para vender. Imágenes en alta calidad, organizadas y listas para e-commerce, redes o campañas.</p>
+              <h4 style="font-size:1rem;font-weight:600;color:#111;margin-bottom:8px;">Entrega Final</h4>
+              <p style="font-size:0.9rem;color:rgba(0,0,0,0.55);">Listo para vender. Imágenes en alta calidad, organizadas y listas para e-commerce, redes o campañas.</p>
             </div>
           </div>
         </div>
@@ -1357,7 +1357,7 @@
       <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;flex-wrap:wrap;gap:20px;">
         <div>
           <div class="section-label" data-reveal>Resultados</div>
-          <h2 class="font-display" data-reveal data-delay="1" style="font-size:clamp(2rem,4.5vw,3.5rem);color:#fff;line-height:1.05;">
+          <h2 class="font-display" data-reveal data-delay="1" style="font-size:clamp(2rem,4.5vw,3.5rem);color:#111;line-height:1.05;">
             Así lucen nuestras<br/><span class="gradient-text font-display" style="font-style:italic;">producciones.</span>
           </h2>
         </div>
@@ -1413,34 +1413,34 @@
     <div class="max-w-5xl mx-auto px-6">
       <div style="text-align:center;margin-bottom:64px;">
         <div class="section-label" data-reveal style="justify-content:center;display:inline-flex;">Por qué SAINTS STILLS</div>
-        <h2 class="font-display" data-reveal data-delay="1" style="font-size:clamp(2rem,4.5vw,3.5rem);color:#fff;line-height:1.05;">
+        <h2 class="font-display" data-reveal data-delay="1" style="font-size:clamp(2rem,4.5vw,3.5rem);color:#111;line-height:1.05;">
           La diferencia es<br/><span class="gradient-text font-display" style="font-style:italic;">evidente.</span>
         </h2>
       </div>
 
       <div class="compare-grid" style="display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:start;" data-reveal>
-        <div class="compare-col" style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);">
-          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:28px;">Fotografía Tradicional</div>
-          <div class="compare-item"><span style="color:#ff5555;flex-shrink:0;">✕</span><span style="color:rgba(255,255,255,0.45);font-size:0.9rem;">2–4 semanas<br><span style="font-size:0.78rem;color:rgba(255,255,255,0.25);">Brief, casting, locación, sesión y publicación.</span></span></div>
-          <div class="compare-item"><span style="color:#ff5555;flex-shrink:0;">✕</span><span style="color:rgba(255,255,255,0.45);font-size:0.9rem;">Fotógrafo + modelos + styling + estudio + staff</span></div>
-          <div class="compare-item"><span style="color:#ff5555;flex-shrink:0;">✕</span><span style="color:rgba(255,255,255,0.45);font-size:0.9rem;">S/1,500 – S/10,000+ por sesión</span></div>
-          <div class="compare-item"><span style="color:#ff5555;flex-shrink:0;">✕</span><span style="color:rgba(255,255,255,0.45);font-size:0.9rem;">Dependes de logística y tiempos<br><span style="font-size:0.78rem;color:rgba(255,255,255,0.25);">Coordinación, disponibilidad e imprevistos.</span></span></div>
-          <div class="compare-item"><span style="color:#ff5555;flex-shrink:0;">✕</span><span style="color:rgba(255,255,255,0.45);font-size:0.9rem;">Control limitado del resultado final</span></div>
+        <div class="compare-col" style="background:rgba(0,0,0,0.02);border:1px solid rgba(0,0,0,0.08);">
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(0,0,0,0.4);margin-bottom:28px;">Fotografía Tradicional</div>
+          <div class="compare-item"><span style="color:#ff5555;flex-shrink:0;">✕</span><span style="color:rgba(0,0,0,0.55);font-size:0.9rem;">2–4 semanas<br><span style="font-size:0.78rem;color:rgba(0,0,0,0.35);">Brief, casting, locación, sesión y publicación.</span></span></div>
+          <div class="compare-item"><span style="color:#ff5555;flex-shrink:0;">✕</span><span style="color:rgba(0,0,0,0.55);font-size:0.9rem;">Fotógrafo + modelos + styling + estudio + staff</span></div>
+          <div class="compare-item"><span style="color:#ff5555;flex-shrink:0;">✕</span><span style="color:rgba(0,0,0,0.55);font-size:0.9rem;">S/1,500 – S/10,000+ por sesión</span></div>
+          <div class="compare-item"><span style="color:#ff5555;flex-shrink:0;">✕</span><span style="color:rgba(0,0,0,0.55);font-size:0.9rem;">Dependes de logística y tiempos<br><span style="font-size:0.78rem;color:rgba(0,0,0,0.35);">Coordinación, disponibilidad e imprevistos.</span></span></div>
+          <div class="compare-item"><span style="color:#ff5555;flex-shrink:0;">✕</span><span style="color:rgba(0,0,0,0.55);font-size:0.9rem;">Control limitado del resultado final</span></div>
         </div>
 
         <div class="compare-vs" style="display:flex;align-items:center;justify-content:center;padding-top:72px;">
-          <div style="width:44px;height:44px;border-radius:50%;background:rgba(27,27,245,0.12);border:1px solid rgba(27,27,245,0.3);display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;color:rgba(255,255,255,0.4);letter-spacing:0.05em;">VS</div>
+          <div style="width:44px;height:44px;border-radius:50%;background:rgba(27,27,245,0.12);border:1px solid rgba(27,27,245,0.3);display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;color:rgba(0,0,0,0.5);letter-spacing:0.05em;">VS</div>
         </div>
 
         <div class="compare-col" style="background:rgba(27,27,245,0.06);border:1px solid rgba(27,27,245,0.22);position:relative;">
           <div style="position:absolute;top:0;right:0;background:rgba(27,27,245,0.15);border-bottom-left-radius:12px;padding:5px 14px;font-size:0.68rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--royal-light);">SAINTS STILLS</div>
           <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(100,100,255,0.6);margin-bottom:28px;">Producción con IA</div>
-          <div class="compare-item"><span style="color:#44ff88;flex-shrink:0;">✓</span><span style="color:rgba(255,255,255,0.75);font-size:0.9rem;">Desde <strong>S/89 por producto</strong> — sin costos ocultos</span></div>
-          <div class="compare-item"><span style="color:#44ff88;flex-shrink:0;">✓</span><span style="color:rgba(255,255,255,0.75);font-size:0.9rem;">Control total: se ajusta, refina y mejora cuantas veces necesites</span></div>
-          <div class="compare-item"><span style="color:#44ff88;flex-shrink:0;">✓</span><span style="color:rgba(255,255,255,0.75);font-size:0.9rem;">Sin logística, sin locaciones — todo sucede en sistema</span></div>
-          <div class="compare-item"><span style="color:#44ff88;flex-shrink:0;">✓</span><span style="color:rgba(255,255,255,0.75);font-size:0.9rem;">Catálogo listo en 5 a 7 días hábiles</span></div>
-          <div class="compare-item"><span style="color:#44ff88;flex-shrink:0;">✓</span><span style="color:rgba(255,255,255,0.75);font-size:0.9rem;">Modelos personalizados + dirección creativa incluida</span></div>
-          <div class="compare-item"><span style="color:#44ff88;flex-shrink:0;">✓</span><span style="color:rgba(255,255,255,0.75);font-size:0.9rem;">Más rápido, más flexible, más rentable</span></div>
+          <div class="compare-item"><span style="color:#44ff88;flex-shrink:0;">✓</span><span style="color:rgba(0,0,0,0.75);font-size:0.9rem;">Desde <strong>S/89 por producto</strong> — sin costos ocultos</span></div>
+          <div class="compare-item"><span style="color:#44ff88;flex-shrink:0;">✓</span><span style="color:rgba(0,0,0,0.75);font-size:0.9rem;">Control total: se ajusta, refina y mejora cuantas veces necesites</span></div>
+          <div class="compare-item"><span style="color:#44ff88;flex-shrink:0;">✓</span><span style="color:rgba(0,0,0,0.75);font-size:0.9rem;">Sin logística, sin locaciones — todo sucede en sistema</span></div>
+          <div class="compare-item"><span style="color:#44ff88;flex-shrink:0;">✓</span><span style="color:rgba(0,0,0,0.75);font-size:0.9rem;">Catálogo listo en 5 a 7 días hábiles</span></div>
+          <div class="compare-item"><span style="color:#44ff88;flex-shrink:0;">✓</span><span style="color:rgba(0,0,0,0.75);font-size:0.9rem;">Modelos personalizados + dirección creativa incluida</span></div>
+          <div class="compare-item"><span style="color:#44ff88;flex-shrink:0;">✓</span><span style="color:rgba(0,0,0,0.75);font-size:0.9rem;">Más rápido, más flexible, más rentable</span></div>
         </div>
       </div>
     </div>
@@ -1455,7 +1455,7 @@
     <div class="max-w-4xl mx-auto px-6">
       <div style="text-align:center;margin-bottom:64px;">
         <div class="section-label" data-reveal style="justify-content:center;display:inline-flex;">Clientes</div>
-        <h2 class="font-display" data-reveal data-delay="1" style="font-size:clamp(2rem,4.5vw,3.5rem);color:#fff;line-height:1.05;">
+        <h2 class="font-display" data-reveal data-delay="1" style="font-size:clamp(2rem,4.5vw,3.5rem);color:#111;line-height:1.05;">
           Lo que dicen<br/><span class="gradient-text font-display" style="font-style:italic;">nuestros clientes.</span>
         </h2>
       </div>
@@ -1468,12 +1468,12 @@
               <div style="display:flex;gap:4px;margin-bottom:24px;position:relative;z-index:1;">
                 <span style="color:#FFB800;font-size:0.875rem;">★★★★★</span>
               </div>
-              <p style="font-size:1.0625rem;color:rgba(255,255,255,0.75);line-height:1.8;margin-bottom:36px;position:relative;z-index:1;">"El catálogo que me hicieron para Loom Origin fue directo al grano — diseñado para vender. Desde que lo usamos, las conversiones subieron notablemente. Exactamente lo que necesitaba."</p>
-              <div style="display:flex;align-items:center;gap:14px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.06);position:relative;z-index:1;">
+              <p style="font-size:1.0625rem;color:rgba(0,0,0,0.75);line-height:1.8;margin-bottom:36px;position:relative;z-index:1;">"El catálogo que me hicieron para Loom Origin fue directo al grano — diseñado para vender. Desde que lo usamos, las conversiones subieron notablemente. Exactamente lo que necesitaba."</p>
+              <div style="display:flex;align-items:center;gap:14px;padding-top:24px;border-top:1px solid rgba(0,0,0,0.08);position:relative;z-index:1;">
                 <div style="width:44px;height:44px;border-radius:50%;background:rgba(27,27,245,0.2);border:1px solid rgba(27,27,245,0.3);display:flex;align-items:center;justify-content:center;font-family:'Instrument Serif',serif;font-size:1.1rem;color:var(--royal-light);flex-shrink:0;">A</div>
                 <div>
-                  <div style="font-size:0.9rem;font-weight:600;color:#fff;">Alexamar L.</div>
-                  <div style="font-size:0.78rem;color:rgba(255,255,255,0.3);margin-top:2px;">Fundadora · Loom Origin</div>
+                  <div style="font-size:0.9rem;font-weight:600;color:#111;">Alexamar L.</div>
+                  <div style="font-size:0.78rem;color:rgba(0,0,0,0.4);margin-top:2px;">Fundadora · Loom Origin</div>
                 </div>
               </div>
             </div>
@@ -1484,12 +1484,12 @@
               <div style="display:flex;gap:4px;margin-bottom:24px;position:relative;z-index:1;">
                 <span style="color:#FFB800;font-size:0.875rem;">★★★★★</span>
               </div>
-              <p style="font-size:1.0625rem;color:rgba(255,255,255,0.75);line-height:1.8;margin-bottom:36px;position:relative;z-index:1;">"Lanzar una primera colección conceptual sin saber cómo comunicarla visualmente es difícil. Me dieron dirección creativa clara desde el día uno — el resultado superó lo que esperaba para A Studios."</p>
-              <div style="display:flex;align-items:center;gap:14px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.06);position:relative;z-index:1;">
+              <p style="font-size:1.0625rem;color:rgba(0,0,0,0.75);line-height:1.8;margin-bottom:36px;position:relative;z-index:1;">"Lanzar una primera colección conceptual sin saber cómo comunicarla visualmente es difícil. Me dieron dirección creativa clara desde el día uno — el resultado superó lo que esperaba para A Studios."</p>
+              <div style="display:flex;align-items:center;gap:14px;padding-top:24px;border-top:1px solid rgba(0,0,0,0.08);position:relative;z-index:1;">
                 <div style="width:44px;height:44px;border-radius:50%;background:rgba(27,27,245,0.2);border:1px solid rgba(27,27,245,0.3);display:flex;align-items:center;justify-content:center;font-family:'Instrument Serif',serif;font-size:1.1rem;color:var(--royal-light);flex-shrink:0;">A</div>
                 <div>
-                  <div style="font-size:0.9rem;font-weight:600;color:#fff;">Andrés Bustamante</div>
-                  <div style="font-size:0.78rem;color:rgba(255,255,255,0.3);margin-top:2px;">Fundador · A Studios</div>
+                  <div style="font-size:0.9rem;font-weight:600;color:#111;">Andrés Bustamante</div>
+                  <div style="font-size:0.78rem;color:rgba(0,0,0,0.4);margin-top:2px;">Fundador · A Studios</div>
                 </div>
               </div>
             </div>
@@ -1500,12 +1500,12 @@
               <div style="display:flex;gap:4px;margin-bottom:24px;position:relative;z-index:1;">
                 <span style="color:#FFB800;font-size:0.875rem;">★★★★★</span>
               </div>
-              <p style="font-size:1.0625rem;color:rgba(255,255,255,0.75);line-height:1.8;margin-bottom:36px;position:relative;z-index:1;">"Teníamos un catálogo grande de blanks y una sesión tradicional hubiera costado una fortuna y tardado semanas. Con SAINTS STILLS lo resolvimos en menos de una semana."</p>
-              <div style="display:flex;align-items:center;gap:14px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.06);position:relative;z-index:1;">
+              <p style="font-size:1.0625rem;color:rgba(0,0,0,0.75);line-height:1.8;margin-bottom:36px;position:relative;z-index:1;">"Teníamos un catálogo grande de blanks y una sesión tradicional hubiera costado una fortuna y tardado semanas. Con SAINTS STILLS lo resolvimos en menos de una semana."</p>
+              <div style="display:flex;align-items:center;gap:14px;padding-top:24px;border-top:1px solid rgba(0,0,0,0.08);position:relative;z-index:1;">
                 <div style="width:44px;height:44px;border-radius:50%;background:rgba(27,27,245,0.2);border:1px solid rgba(27,27,245,0.3);display:flex;align-items:center;justify-content:center;font-family:'Instrument Serif',serif;font-size:1.1rem;color:var(--royal-light);flex-shrink:0;">R</div>
                 <div>
-                  <div style="font-size:0.9rem;font-weight:600;color:#fff;">Renzo Jiménez</div>
-                  <div style="font-size:0.78rem;color:rgba(255,255,255,0.3);margin-top:2px;">Fundador · Your Brand</div>
+                  <div style="font-size:0.9rem;font-weight:600;color:#111;">Renzo Jiménez</div>
+                  <div style="font-size:0.78rem;color:rgba(0,0,0,0.4);margin-top:2px;">Fundador · Your Brand</div>
                 </div>
               </div>
             </div>
@@ -1541,7 +1541,7 @@
     <div class="max-w-3xl mx-auto px-6">
       <div style="text-align:center;margin-bottom:64px;">
         <div class="section-label" data-reveal style="justify-content:center;display:inline-flex;">FAQ</div>
-        <h2 class="font-display" data-reveal data-delay="1" style="font-size:clamp(2rem,4.5vw,3.5rem);color:#fff;line-height:1.05;">
+        <h2 class="font-display" data-reveal data-delay="1" style="font-size:clamp(2rem,4.5vw,3.5rem);color:#111;line-height:1.05;">
           Todo lo que<br/><span class="gradient-text font-display" style="font-style:italic;">necesitas saber.</span>
         </h2>
       </div>
@@ -1577,8 +1577,8 @@
   <section class="newsletter-section" style="padding:80px 0;">
     <div class="max-w-3xl mx-auto px-6" style="text-align:center;">
       <div class="section-label" data-reveal style="justify-content:center;display:inline-flex;">Instagram</div>
-      <h2 class="font-display" data-reveal data-delay="1" style="font-size:clamp(1.8rem,3.5vw,2.5rem);color:#fff;margin-bottom:12px;line-height:1.1;">Mirá nuestro trabajo<br/><span class="gradient-text font-display" style="font-style:italic;">en Instagram.</span></h2>
-      <p data-reveal data-delay="2" style="color:rgba(255,255,255,0.4);margin-bottom:32px;font-size:0.9375rem;">Producción visual, campañas y contenido editorial. Todo en un feed.</p>
+      <h2 class="font-display" data-reveal data-delay="1" style="font-size:clamp(1.8rem,3.5vw,2.5rem);color:#111;margin-bottom:12px;line-height:1.1;">Mirá nuestro trabajo<br/><span class="gradient-text font-display" style="font-style:italic;">en Instagram.</span></h2>
+      <p data-reveal data-delay="2" style="color:rgba(0,0,0,0.5);margin-bottom:32px;font-size:0.9375rem;">Producción visual, campañas y contenido editorial. Todo en un feed.</p>
       <a data-reveal data-delay="3" href="https://www.instagram.com/saintstillss" target="_blank" rel="noopener noreferrer" class="btn-solid" style="display:inline-flex;align-items:center;gap:10px;padding:14px 28px;font-size:1rem;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
         @saintstillss
@@ -1599,14 +1599,14 @@
         </div>
       </div>
       <div class="section-label" data-reveal data-delay="1" style="justify-content:center;display:inline-flex;margin-bottom:28px;">Un mensaje es suficiente</div>
-      <h2 class="font-display" data-reveal data-delay="2" style="font-size:clamp(2.5rem,6vw,5rem);color:#fff;line-height:1.0;margin-bottom:24px;">
+      <h2 class="font-display" data-reveal data-delay="2" style="font-size:clamp(2.5rem,6vw,5rem);color:#111;line-height:1.0;margin-bottom:24px;">
         Tu marca merece<br/>
         <span class="gradient-text font-display" style="font-style:italic;">imágenes que venden.</span>
       </h2>
-      <p data-reveal data-delay="2" style="font-size:1.0625rem;max-width:480px;margin:0 auto 12px;color:rgba(250,250,250,0.5);">
+      <p data-reveal data-delay="2" style="font-size:1.0625rem;max-width:480px;margin:0 auto 12px;color:rgba(0,0,0,0.55);">
         Cuéntanos sobre tu producto y te decimos exactamente qué podemos hacer por tu marca — sin rodeos, sin formularios.
       </p>
-      <p data-reveal data-delay="2" style="font-size:1rem;max-width:480px;margin:0 auto 40px;color:rgba(255,255,255,0.25);font-style:italic;">
+      <p data-reveal data-delay="2" style="font-size:1rem;max-width:480px;margin:0 auto 40px;color:rgba(0,0,0,0.35);font-style:italic;">
         Una conversación es suficiente para arrancar.
       </p>
 
@@ -1615,30 +1615,30 @@
       </div>
 
       <div data-reveal data-delay="4" class="cta-trust-badges">
-        <span style="display:flex;align-items:center;gap:8px;font-size:0.8125rem;color:rgba(255,255,255,0.3);"><span style="color:#44ff88;">✓</span> Respuesta en menos de 24h</span>
-        <span style="display:flex;align-items:center;gap:8px;font-size:0.8125rem;color:rgba(255,255,255,0.3);"><span style="color:#44ff88;">✓</span> Agentes especializados en IA</span>
-        <span style="display:flex;align-items:center;gap:8px;font-size:0.8125rem;color:rgba(255,255,255,0.3);"><span style="color:#44ff88;">✓</span> Entrega en 5–7 días hábiles</span>
+        <span style="display:flex;align-items:center;gap:8px;font-size:0.8125rem;color:rgba(0,0,0,0.4);"><span style="color:#44ff88;">✓</span> Respuesta en menos de 24h</span>
+        <span style="display:flex;align-items:center;gap:8px;font-size:0.8125rem;color:rgba(0,0,0,0.4);"><span style="color:#44ff88;">✓</span> Agentes especializados en IA</span>
+        <span style="display:flex;align-items:center;gap:8px;font-size:0.8125rem;color:rgba(0,0,0,0.4);"><span style="color:#44ff88;">✓</span> Entrega en 5–7 días hábiles</span>
       </div>
     </div>
   </section>
 
   <!-- ══════════ FOOTER ══════════ -->
-  <footer style="border-top:1px solid rgba(255,255,255,0.05);padding:52px 0;">
+  <footer style="border-top:1px solid rgba(0,0,0,0.07);padding:52px 0;">
     <div class="max-w-7xl mx-auto px-6">
       <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;">
         <div style="display:flex;align-items:center;gap:12px;">
           <div class="logo-pill" style="padding:3px 8px;">
             <img src="brand_assets/logo.jpg" alt="SAINTS STILLS" class="logo-img" style="height:24px;" />
           </div>
-          <span style="font-size:0.78rem;color:rgba(255,255,255,0.2);">Agencia de Producción Visual con IA</span>
+          <span style="font-size:0.78rem;color:rgba(0,0,0,0.3);">Agencia de Producción Visual con IA</span>
         </div>
         <div style="display:flex;gap:28px;flex-wrap:wrap;">
-          <a href="#servicios" style="font-size:0.8125rem;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s ease;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Servicios</a>
-          <a href="#proceso" style="font-size:0.8125rem;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s ease;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Proceso</a>
-          <a href="#resultados" style="font-size:0.8125rem;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s ease;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Resultados</a>
-          <a href="mailto:ozziedeluxe@gmail.com" style="font-size:0.8125rem;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s ease;" onmouseover="this.style.color='rgba(255,255,255,0.6)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Contacto</a>
+          <a href="#servicios" style="font-size:0.8125rem;color:rgba(0,0,0,0.35);text-decoration:none;transition:color 0.2s ease;" onmouseover="this.style.color='rgba(0,0,0,0.7)'" onmouseout="this.style.color='rgba(0,0,0,0.35)'">Servicios</a>
+          <a href="#proceso" style="font-size:0.8125rem;color:rgba(0,0,0,0.35);text-decoration:none;transition:color 0.2s ease;" onmouseover="this.style.color='rgba(0,0,0,0.7)'" onmouseout="this.style.color='rgba(0,0,0,0.35)'">Proceso</a>
+          <a href="#resultados" style="font-size:0.8125rem;color:rgba(0,0,0,0.35);text-decoration:none;transition:color 0.2s ease;" onmouseover="this.style.color='rgba(0,0,0,0.7)'" onmouseout="this.style.color='rgba(0,0,0,0.35)'">Resultados</a>
+          <a href="mailto:ozziedeluxe@gmail.com" style="font-size:0.8125rem;color:rgba(0,0,0,0.35);text-decoration:none;transition:color 0.2s ease;" onmouseover="this.style.color='rgba(0,0,0,0.7)'" onmouseout="this.style.color='rgba(0,0,0,0.35)'">Contacto</a>
         </div>
-        <div style="font-size:0.72rem;color:rgba(255,255,255,0.18);">© 2025 SAINTS STILLS. Todos los derechos reservados.</div>
+        <div style="font-size:0.72rem;color:rgba(0,0,0,0.3);">© 2025 SAINTS STILLS. Todos los derechos reservados.</div>
       </div>
     </div>
   </footer>
