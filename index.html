@@ -63,7 +63,7 @@
       transition: background 0.4s ease, backdrop-filter 0.4s ease, padding 0.3s ease;
     }
     nav.scrolled {
-      background: rgba(5,5,15,0.8);
+      background: rgba(5,5,15,0.88);
       backdrop-filter: blur(24px);
       border-bottom: 1px solid rgba(255,255,255,0.05);
       padding: 14px 0;
@@ -86,6 +86,57 @@
     .nav-link:hover { color: #fff; }
     .nav-link:hover::after { width: 100%; }
 
+    /* ── HAMBURGER ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      background: none;
+      border: none;
+      outline: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: rgba(255,255,255,0.7);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      border-radius: 2px;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* ── MOBILE MENU ── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(5,5,15,0.97);
+      backdrop-filter: blur(24px);
+      z-index: 400;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .mobile-menu.open {
+      display: flex;
+      opacity: 1;
+    }
+    .mobile-menu a {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2.2rem;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .mobile-menu a:hover { color: #fff; }
+
     /* ── BUTTONS ── */
     .btn-solid {
       display: inline-flex;
@@ -102,6 +153,7 @@
       transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s ease, background 0.2s ease;
       cursor: pointer;
       text-decoration: none;
+      white-space: nowrap;
     }
     .btn-solid:hover {
       background: var(--royal-mid);
@@ -126,6 +178,7 @@
       transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s cubic-bezier(.34,1.56,.64,1);
       cursor: pointer;
       text-decoration: none;
+      white-space: nowrap;
     }
     .btn-outline:hover {
       border-color: rgba(255,255,255,0.6);
@@ -197,7 +250,7 @@
     }
     .marquee-sep { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.2); }
 
-    /* ── SERVICE CARD (numbered, MYUZ-style) ── */
+    /* ── SERVICE CARD ── */
     .service-row {
       display: grid;
       grid-template-columns: 80px 1fr 1fr;
@@ -522,37 +575,243 @@
     /* ── COUNTER ── */
     .count-up { display: inline-block; }
 
+    /* ── GRIDS (semánticas para override responsive) ── */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .stats-strip-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .services-header-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 80px;
+      margin-bottom: 72px;
+      align-items: end;
+    }
+    .proceso-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: start;
+    }
+    .resultados-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto;
+      gap: 16px;
+    }
+    .hero-cta-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 56px;
+    }
+    .cta-trust-badges {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    /* ── RESPONSIVE: tablet ── */
     @media (max-width: 900px) {
       .service-row { grid-template-columns: 48px 1fr; }
       .service-img { display: none; }
       .hero-catalog { display: none !important; }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .services-header-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-bottom: 40px;
+      }
+      .proceso-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .resultados-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .resultados-grid .catalog-item:first-child {
+        grid-row: span 1;
+      }
+      .resultados-grid .catalog-item[style*="grid-column:span 2"] {
+        grid-column: span 2;
+      }
     }
+
+    /* ── RESPONSIVE: mobile ── */
     @media (max-width: 640px) {
       .compare-grid { grid-template-columns: 1fr !important; }
       .compare-vs { display: none !important; }
+
+      nav { padding: 16px 0; }
+      nav.scrolled { padding: 12px 0; }
+
+      .hamburger { display: flex; }
+      .nav-desktop { display: none !important; }
+      .nav-cta { display: none !important; }
+
+      .hero-grid { grid-template-columns: 1fr; gap: 0; }
+      .hero-catalog { display: none !important; }
+
+      .hero-stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .hero-stats-grid > div:last-child {
+        grid-column: span 2;
+        text-align: center;
+      }
+
+      .stats-strip-grid {
+        grid-template-columns: 1fr;
+        border-radius: 16px;
+      }
+      .stats-strip-grid > div {
+        padding: 28px 20px !important;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+      }
+      .stats-strip-grid > div:last-child { border-bottom: none; }
+
+      .services-header-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 32px;
+      }
+
+      .service-row {
+        grid-template-columns: 40px 1fr;
+        gap: 16px;
+        padding: 28px 0;
+      }
+      .service-num { font-size: 2rem; }
+
+      .proceso-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .resultados-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .resultados-grid .catalog-item[style*="grid-row:span 2"],
+      .resultados-grid .catalog-item[style*="grid-column:span 2"] {
+        grid-row: span 1 !important;
+        grid-column: span 2 !important;
+      }
+
+      .testimonial-card {
+        padding: 28px 20px;
+      }
+      .testimonial-card::before { font-size: 8rem; }
+
+      .hero-cta-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        margin-bottom: 40px;
+      }
+      .hero-cta-buttons .btn-solid,
+      .hero-cta-buttons .btn-outline {
+        justify-content: center;
+        text-align: center;
+        padding: 15px 24px;
+      }
+
+      .cta-trust-badges {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      section { padding-top: 72px !important; padding-bottom: 72px !important; }
+
+      .compare-col { padding: 24px 20px; }
+
+      .section-label { font-size: 0.68rem; }
+
+      details summary { font-size: 0.875rem; padding: 20px 0; }
+      .faq-answer { font-size: 0.875rem; }
+    }
+
+    @media (max-width: 400px) {
+      .hero-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .hero-stats-grid > div:last-child {
+        grid-column: span 1;
+        text-align: left;
+      }
+      .resultados-grid {
+        grid-template-columns: 1fr;
+      }
+      .resultados-grid .catalog-item[style*="grid-column:span 2"] {
+        grid-column: span 1 !important;
+      }
     }
   </style>
 </head>
 
 <body>
 
+  <!-- ══════════ MOBILE MENU ══════════ -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#servicios" onclick="closeMobileMenu()">Servicios</a>
+    <a href="#proceso" onclick="closeMobileMenu()">Proceso</a>
+    <a href="#resultados" onclick="closeMobileMenu()">Resultados</a>
+    <a href="#testimonios" onclick="closeMobileMenu()">Clientes</a>
+    <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+    <a href="https://wa.me/?text=Hola,%20me%20interesa%20producción%20visual%20con%20IA%20para%20mi%20marca" class="btn-solid" style="font-size:1rem;padding:14px 36px;">Hablar por WhatsApp →</a>
+  </div>
+
   <!-- ══════════ NAV ══════════ -->
   <nav id="nav">
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
-      <a href="#" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
+      <a href="#" style="display:flex;align-items:center;gap:12px;text-decoration:none;z-index:510;position:relative;">
         <div class="logo-pill">
           <img src="brand_assets/logo.jpg" alt="SAINTS STILLS" class="logo-img" />
         </div>
         <span style="font-size:0.78rem;font-weight:500;letter-spacing:0.1em;color:rgba(255,255,255,0.35);text-transform:uppercase;">SAINT STILLS</span>
       </a>
-      <div style="display:flex;align-items:center;gap:36px;" class="hidden md:flex">
+      <div class="nav-desktop" style="display:flex;align-items:center;gap:36px;">
         <a href="#servicios" class="nav-link">Servicios</a>
         <a href="#proceso" class="nav-link">Proceso</a>
         <a href="#resultados" class="nav-link">Resultados</a>
         <a href="#testimonios" class="nav-link">Clientes</a>
         <a href="#faq" class="nav-link">FAQ</a>
       </div>
-      <a href="https://wa.me/?text=Hola,%20me%20interesa%20producción%20visual%20con%20IA%20para%20mi%20marca" class="btn-solid" style="padding:10px 22px;font-size:0.8rem;">Hablar por WhatsApp →</a>
+      <div style="display:flex;align-items:center;gap:16px;z-index:510;position:relative;">
+        <a href="https://wa.me/?text=Hola,%20me%20interesa%20producción%20visual%20con%20IA%20para%20mi%20marca" class="btn-solid nav-cta" style="padding:10px 22px;font-size:0.8rem;">Hablar por WhatsApp →</a>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -562,26 +821,26 @@
     <div class="blob" style="width:400px;height:400px;background:radial-gradient(circle,rgba(27,27,245,0.1) 0%,transparent 65%);bottom:-80px;right:200px;"></div>
     <div class="blob" style="width:300px;height:300px;background:radial-gradient(circle,rgba(100,100,255,0.08) 0%,transparent 65%);top:35%;left:50%;"></div>
 
-    <div class="max-w-7xl mx-auto px-6 w-full py-20" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+    <div class="max-w-7xl mx-auto px-6 w-full py-20 hero-grid">
 
       <div>
         <div class="section-label" data-reveal>Agencia de Producción Visual con IA</div>
 
-        <h1 class="font-display" data-reveal data-delay="1" style="font-size:clamp(3.2rem,7vw,6rem);color:#fff;line-height:1.0;margin-bottom:28px;">
+        <h1 class="font-display" data-reveal data-delay="1" style="font-size:clamp(3rem,7vw,6rem);color:#fff;line-height:1.0;margin-bottom:28px;">
           Tu catálogo,<br/>
           <span class="gradient-text font-display" style="font-style:italic;">listo para vender.</span>
         </h1>
 
-        <p data-reveal data-delay="2" style="font-size:clamp(1rem,1.8vw,1.15rem);max-width:520px;margin-bottom:40px;color:rgba(250,250,250,0.55);line-height:1.8;">
-          Catálogo listo para vender en menos de 7 días hábiles — más rápido y más rentable que una producción tradicional, sin perder estética. Modelos personalizados, dirección creativa y fondos a medida.
+        <p data-reveal data-delay="2" style="font-size:clamp(0.95rem,1.8vw,1.15rem);max-width:520px;margin-bottom:40px;color:rgba(250,250,250,0.55);line-height:1.8;">
+          Catálogo listo para vender en menos de 7 días hábiles — más rápido y más rentable que una producción tradicional. Modelos personalizados, dirección creativa y fondos a medida.
         </p>
 
-        <div data-reveal data-delay="3" style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:56px;">
+        <div data-reveal data-delay="3" class="hero-cta-buttons">
           <a href="https://wa.me/?text=Hola,%20me%20interesa%20producción%20visual%20con%20IA%20para%20mi%20marca" class="btn-solid">Escríbenos por WhatsApp →</a>
           <a href="#servicios" class="btn-outline">Conocer servicios</a>
         </div>
 
-        <div data-reveal data-delay="4" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.06);">
+        <div data-reveal data-delay="4" class="hero-stats-grid">
           <div>
             <div class="stat-num">-<span class="count-up" data-target="80">0</span>%</div>
             <p style="font-size:0.78rem;margin-top:6px;color:rgba(255,255,255,0.35);line-height:1.5;">reducción en costos</p>
@@ -592,7 +851,7 @@
           </div>
           <div>
             <div class="stat-num">100%</div>
-            <p style="font-size:0.78rem;margin-top:6px;color:rgba(255,255,255,0.35);line-height:1.5;">100% consistencia</p>
+            <p style="font-size:0.78rem;margin-top:6px;color:rgba(255,255,255,0.35);line-height:1.5;">consistencia visual</p>
           </div>
         </div>
       </div>
@@ -671,7 +930,7 @@
   <!-- ══════════ STATS STRIP ══════════ -->
   <section style="padding:80px 0;">
     <div class="max-w-7xl mx-auto px-6">
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.06);border-radius:20px;overflow:hidden;">
+      <div class="stats-strip-grid">
         <div data-reveal style="padding:40px;background:#05050F;text-align:center;">
           <div class="stat-num" style="margin-bottom:10px;display:block;">+<span class="count-up" data-target="75">0</span></div>
           <p style="font-size:0.875rem;color:rgba(255,255,255,0.4);">Proyectos completados</p>
@@ -690,15 +949,15 @@
 
   <div class="divider"></div>
 
-  <!-- ══════════ SERVICIOS (numbered, MYUZ-style) ══════════ -->
+  <!-- ══════════ SERVICIOS ══════════ -->
   <section id="servicios" style="padding:120px 0;position:relative;overflow:hidden;">
     <div class="blob" style="width:500px;height:500px;background:radial-gradient(circle,rgba(27,27,245,0.1) 0%,transparent 65%);top:0;right:-150px;"></div>
 
     <div class="max-w-7xl mx-auto px-6">
-      <div style="display:grid;grid-template-columns:1fr 2fr;gap:80px;margin-bottom:72px;align-items:end;">
+      <div class="services-header-grid">
         <div>
           <div class="section-label" data-reveal>Servicios</div>
-          <h2 class="font-display" data-reveal data-delay="1" style="font-size:clamp(2.5rem,5vw,4rem);color:#fff;line-height:1.05;">
+          <h2 class="font-display" data-reveal data-delay="1" style="font-size:clamp(2.2rem,5vw,4rem);color:#fff;line-height:1.05;">
             De una foto a un <span class="gradient-text font-display" style="font-style:italic;">sistema visual escalable.</span>
           </h2>
         </div>
@@ -707,7 +966,6 @@
         </div>
       </div>
 
-      <!-- Service rows -->
       <div>
         <div class="service-row" data-reveal>
           <div class="service-num">01</div>
@@ -807,13 +1065,13 @@
     <div class="blob" style="width:500px;height:500px;background:radial-gradient(circle,rgba(27,27,245,0.08) 0%,transparent 65%);bottom:0;left:-150px;"></div>
 
     <div class="max-w-7xl mx-auto px-6">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:start;">
+      <div class="proceso-grid">
         <div>
           <div class="section-label" data-reveal>Proceso</div>
-          <h2 class="font-display" data-reveal data-delay="1" style="font-size:clamp(2.2rem,4.5vw,3.5rem);color:#fff;margin-bottom:20px;line-height:1.05;">
+          <h2 class="font-display" data-reveal data-delay="1" style="font-size:clamp(2rem,4.5vw,3.5rem);color:#fff;margin-bottom:20px;line-height:1.05;">
             <span class="gradient-text font-display" style="font-style:italic;">De producto a visuales que convierten</span>
           </h2>
-          <p data-reveal data-delay="2" style="font-size:0.9375rem;color:rgba(255,255,255,0.5);margin-bottom:40px;max-width:380px;line-height:1.8;">Nuestro flujo está diseñado para transformar tus ideas en visuales que venden. Tu defines el mood, nosotros lo producimos.</p>
+          <p data-reveal data-delay="2" style="font-size:0.9375rem;color:rgba(255,255,255,0.5);margin-bottom:40px;max-width:380px;line-height:1.8;">Nuestro flujo está diseñado para transformar tus ideas en visuales que venden. Tú defines el mood, nosotros lo producimos.</p>
           <div data-reveal data-delay="3">
             <a href="https://wa.me/?text=Hola,%20quiero%20empezar%20un%20proyecto%20de%20catálogo%20con%20IA" class="btn-solid">Escríbenos ahora →</a>
           </div>
@@ -863,7 +1121,7 @@
       <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;flex-wrap:wrap;gap:20px;">
         <div>
           <div class="section-label" data-reveal>Resultados</div>
-          <h2 class="font-display" data-reveal data-delay="1" style="font-size:clamp(2.2rem,4.5vw,3.5rem);color:#fff;line-height:1.05;">
+          <h2 class="font-display" data-reveal data-delay="1" style="font-size:clamp(2rem,4.5vw,3.5rem);color:#fff;line-height:1.05;">
             Así lucen nuestras<br/><span class="gradient-text font-display" style="font-style:italic;">producciones.</span>
           </h2>
         </div>
@@ -872,9 +1130,9 @@
         </div>
       </div>
 
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto;gap:16px;" data-reveal>
+      <div class="resultados-grid" data-reveal>
         <div class="catalog-item" style="grid-row:span 2;aspect-ratio:auto;">
-          <img src="https://placehold.co/500x700/0a0a20/1B1BF5?text=." style="min-height:400px;" alt="" />
+          <img src="https://placehold.co/500x700/0a0a20/1B1BF5?text=." style="min-height:300px;" alt="" />
           <div class="catalog-overlay"></div>
           <div class="catalog-color"></div>
           <div class="catalog-label">Colección Otoño · Moda</div>
@@ -886,7 +1144,7 @@
           <div class="catalog-label">Skincare · Cosmética</div>
         </div>
         <div class="catalog-item" style="grid-column:span 2;aspect-ratio:auto;">
-          <img src="https://placehold.co/800x300/060614/1414CC?text=." style="min-height:200px;" alt="" />
+          <img src="https://placehold.co/800x300/060614/1414CC?text=." style="min-height:180px;" alt="" />
           <div class="catalog-overlay"></div>
           <div class="catalog-color"></div>
           <div class="catalog-label">Lifestyle · Hogar Premium</div>
@@ -920,7 +1178,7 @@
     <div class="max-w-5xl mx-auto px-6">
       <div style="text-align:center;margin-bottom:64px;">
         <div class="section-label" data-reveal style="justify-content:center;display:inline-flex;">Por qué SAINTS STILLS</div>
-        <h2 class="font-display" data-reveal data-delay="1" style="font-size:clamp(2.2rem,4.5vw,3.5rem);color:#fff;line-height:1.05;">
+        <h2 class="font-display" data-reveal data-delay="1" style="font-size:clamp(2rem,4.5vw,3.5rem);color:#fff;line-height:1.05;">
           La diferencia es<br/><span class="gradient-text font-display" style="font-style:italic;">evidente.</span>
         </h2>
       </div>
@@ -932,7 +1190,7 @@
           <div class="compare-item"><span style="color:#ff5555;flex-shrink:0;">✕</span><span style="color:rgba(255,255,255,0.45);font-size:0.9rem;">Fotógrafo + modelos + styling + estudio + staff</span></div>
           <div class="compare-item"><span style="color:#ff5555;flex-shrink:0;">✕</span><span style="color:rgba(255,255,255,0.45);font-size:0.9rem;">S/1,500 – S/10,000+ por sesión</span></div>
           <div class="compare-item"><span style="color:#ff5555;flex-shrink:0;">✕</span><span style="color:rgba(255,255,255,0.45);font-size:0.9rem;">Dependes de logística y tiempos<br><span style="font-size:0.78rem;color:rgba(255,255,255,0.25);">Coordinación, disponibilidad e imprevistos.</span></span></div>
-          <div class="compare-item"><span style="color:#ff5555;flex-shrink:0;">✕</span><span style="color:rgba(255,255,255,0.45);font-size:0.9rem;">No puedes realizar cambios<br><span style="font-size:0.78rem;color:rgba(255,255,255,0.25);">Control limitado del resultado final — muchas variables fuera de tu control.</span></span></div>
+          <div class="compare-item"><span style="color:#ff5555;flex-shrink:0;">✕</span><span style="color:rgba(255,255,255,0.45);font-size:0.9rem;">Control limitado del resultado final</span></div>
         </div>
 
         <div class="compare-vs" style="display:flex;align-items:center;justify-content:center;padding-top:72px;">
@@ -962,7 +1220,7 @@
     <div class="max-w-4xl mx-auto px-6">
       <div style="text-align:center;margin-bottom:64px;">
         <div class="section-label" data-reveal style="justify-content:center;display:inline-flex;">Clientes</div>
-        <h2 class="font-display" data-reveal data-delay="1" style="font-size:clamp(2.2rem,4.5vw,3.5rem);color:#fff;line-height:1.05;">
+        <h2 class="font-display" data-reveal data-delay="1" style="font-size:clamp(2rem,4.5vw,3.5rem);color:#fff;line-height:1.05;">
           Lo que dicen<br/><span class="gradient-text font-display" style="font-style:italic;">nuestros clientes.</span>
         </h2>
       </div>
@@ -1020,7 +1278,6 @@
 
         </div>
 
-        <!-- Controls -->
         <div style="display:flex;align-items:center;justify-content:space-between;margin-top:32px;">
           <div style="display:flex;gap:8px;align-items:center;" id="sliderDots">
             <div class="slider-dot active" data-index="0"></div>
@@ -1049,7 +1306,7 @@
     <div class="max-w-3xl mx-auto px-6">
       <div style="text-align:center;margin-bottom:64px;">
         <div class="section-label" data-reveal style="justify-content:center;display:inline-flex;">FAQ</div>
-        <h2 class="font-display" data-reveal data-delay="1" style="font-size:clamp(2.2rem,4.5vw,3.5rem);color:#fff;line-height:1.05;">
+        <h2 class="font-display" data-reveal data-delay="1" style="font-size:clamp(2rem,4.5vw,3.5rem);color:#fff;line-height:1.05;">
           Todo lo que<br/><span class="gradient-text font-display" style="font-style:italic;">necesitas saber.</span>
         </h2>
       </div>
@@ -1061,7 +1318,7 @@
         </details>
         <details>
           <summary>¿Las imágenes se ven artificiales? <div class="chevron"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div></summary>
-          <div class="faq-answer">No.<br>Hoy podemos lograr imágenes que se ven completamente reales.<br>La diferencia está en la dirección: cada visual pasa por criterio creativo humano para que se sienta como una producción profesional, no como algo generado.</div>
+          <div class="faq-answer">No. Hoy podemos lograr imágenes que se ven completamente reales. La diferencia está en la dirección: cada visual pasa por criterio creativo humano para que se sienta como una producción profesional, no como algo generado.</div>
         </details>
         <details>
           <summary>¿Cuánto tiempo tarda la entrega? <div class="chevron"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div></summary>
@@ -1107,7 +1364,7 @@
         </div>
       </div>
       <div class="section-label" data-reveal data-delay="1" style="justify-content:center;display:inline-flex;margin-bottom:28px;">Un mensaje es suficiente</div>
-      <h2 class="font-display" data-reveal data-delay="2" style="font-size:clamp(2.8rem,6vw,5rem);color:#fff;line-height:1.0;margin-bottom:24px;">
+      <h2 class="font-display" data-reveal data-delay="2" style="font-size:clamp(2.5rem,6vw,5rem);color:#fff;line-height:1.0;margin-bottom:24px;">
         Tu marca merece<br/>
         <span class="gradient-text font-display" style="font-style:italic;">imágenes que venden.</span>
       </h2>
@@ -1122,7 +1379,7 @@
         <a href="https://wa.me/?text=Hola,%20quiero%20mejorar%20las%20imágenes%20de%20mis%20productos%20con%20producción%20visual%20IA" class="btn-solid" style="font-size:1rem;padding:16px 40px;">Escríbenos por WhatsApp →</a>
       </div>
 
-      <div data-reveal data-delay="4" style="display:flex;justify-content:center;align-items:center;gap:32px;flex-wrap:wrap;">
+      <div data-reveal data-delay="4" class="cta-trust-badges">
         <span style="display:flex;align-items:center;gap:8px;font-size:0.8125rem;color:rgba(255,255,255,0.3);"><span style="color:#44ff88;">✓</span> Respuesta en menos de 24h</span>
         <span style="display:flex;align-items:center;gap:8px;font-size:0.8125rem;color:rgba(255,255,255,0.3);"><span style="color:#44ff88;">✓</span> Agentes especializados en IA</span>
         <span style="display:flex;align-items:center;gap:8px;font-size:0.8125rem;color:rgba(255,255,255,0.3);"><span style="color:#44ff88;">✓</span> Entrega en 5–7 días hábiles</span>
@@ -1158,6 +1415,27 @@
       nav.classList.toggle('scrolled', window.scrollY > 50);
     }, { passive: true });
 
+    /* ── HAMBURGER / MOBILE MENU ── */
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburgerBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.contains('open');
+      if (isOpen) {
+        closeMobileMenu();
+      } else {
+        mobileMenu.classList.add('open');
+        hamburgerBtn.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+      hamburgerBtn.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
     /* ── SCROLL REVEAL ── */
     const revealEls = document.querySelectorAll('[data-reveal]');
     const revealObserver = new IntersectionObserver((entries) => {
@@ -1167,7 +1445,7 @@
           revealObserver.unobserve(e.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
     revealEls.forEach(el => revealObserver.observe(el));
 
     /* ── COUNT UP ── */
@@ -1211,10 +1489,8 @@
     document.getElementById('nextBtn').addEventListener('click', () => goTo(current + 1));
     dots.forEach(d => d.addEventListener('click', () => goTo(parseInt(d.dataset.index))));
 
-    // Auto-advance
     setInterval(() => goTo(current + 1), 12000);
 
-    // Touch swipe
     let touchStartX = 0;
     track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
     track.addEventListener('touchend', e => {
