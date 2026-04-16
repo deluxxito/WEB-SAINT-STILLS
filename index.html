@@ -635,11 +635,22 @@
     @media (max-width: 900px) {
       .service-row { grid-template-columns: 48px 1fr; }
       .service-img { display: none; }
-      .hero-catalog { display: none !important; }
 
       .hero-grid {
         grid-template-columns: 1fr;
         gap: 40px;
+      }
+      .hero-catalog {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .hero-catalog .catalog-item {
+        margin: 0 !important;
+        animation: none !important;
+      }
+      .hero-catalog .catalog-item:nth-child(3),
+      .hero-catalog .catalog-item:nth-child(4) {
+        display: none;
       }
       .services-header-grid {
         grid-template-columns: 1fr;
@@ -673,8 +684,21 @@
       .nav-desktop { display: none !important; }
       .nav-cta { display: none !important; }
 
-      .hero-grid { grid-template-columns: 1fr; gap: 0; }
-      .hero-catalog { display: none !important; }
+      .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+      .hero-catalog {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      .hero-catalog .catalog-item {
+        aspect-ratio: 3/4 !important;
+        margin: 0 !important;
+        animation: none !important;
+      }
+      .hero-catalog .catalog-item:nth-child(3),
+      .hero-catalog .catalog-item:nth-child(4) {
+        display: block;
+      }
 
       .hero-stats-grid {
         grid-template-columns: 1fr 1fr;
