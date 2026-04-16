@@ -253,7 +253,7 @@
     /* ── SERVICE CARD ── */
     .service-row {
       display: grid;
-      grid-template-columns: 80px 1fr 1fr;
+      grid-template-columns: 80px 1fr;
       gap: 40px;
       align-items: start;
       padding: 48px 0;
@@ -261,6 +261,7 @@
       transition: background 0.3s ease;
       position: relative;
     }
+    .service-img { display: none; }
     .service-row::before {
       content: '';
       position: absolute;
@@ -634,7 +635,7 @@
     /* ── RESPONSIVE: tablet ── */
     @media (max-width: 900px) {
       .service-row { grid-template-columns: 48px 1fr; }
-      .service-img { display: none; }
+      .service-img { display: block; }
 
       .hero-grid {
         grid-template-columns: 1fr;
@@ -1155,7 +1156,7 @@
       <div>
         <div class="service-row" data-reveal>
           <div class="service-num">01</div>
-          <div style="padding-right:40px;">
+          <div>
             <h3 style="font-size:1.375rem;font-weight:600;color:#fff;margin-bottom:12px;">Ecommerce · Catálogos de Producto</h3>
             <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);margin-bottom:20px;">Imágenes de producto sobre fondo limpio o en escena, con luz, sombras y ángulos profesionales. Desde S/89 por producto según volumen.</p>
             <div style="display:flex;gap:8px;flex-wrap:wrap;">
@@ -1172,7 +1173,7 @@
 
         <div class="service-row" data-reveal>
           <div class="service-num">02</div>
-          <div style="padding-right:40px;">
+          <div>
             <h3 style="font-size:1.375rem;font-weight:600;color:#fff;margin-bottom:12px;">Editorial · Producción de Moda</h3>
             <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);margin-bottom:20px;">Desde S/199 por producto. Incluye fondo personalizado + 3 modelos. Defines el mood, nosotros ejecutamos la sesión entera.</p>
             <div style="display:flex;gap:8px;flex-wrap:wrap;">
@@ -1189,7 +1190,7 @@
 
         <div class="service-row" data-reveal>
           <div class="service-num">03</div>
-          <div style="padding-right:40px;">
+          <div>
             <h3 style="font-size:1.375rem;font-weight:600;color:#fff;margin-bottom:12px;">Campaña · Producción Completa</h3>
             <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);margin-bottom:20px;">Concepto, ejecución y piezas alineadas a tu marca. Desde la idea hasta el arte final, todo bajo una dirección integral.</p>
             <div style="display:flex;gap:8px;flex-wrap:wrap;">
@@ -1207,7 +1208,7 @@
 
         <div class="service-row" data-reveal>
           <div class="service-num">04</div>
-          <div style="padding-right:40px;">
+          <div>
             <h3 style="font-size:1.375rem;font-weight:600;color:#fff;margin-bottom:12px;">Video · Short Campaigns IA</h3>
             <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);margin-bottom:20px;">Piezas visuales con narrativa, pensadas para elevar tu contenido. Del guión visual a la edición final, en formato para redes.</p>
             <div style="display:flex;gap:8px;flex-wrap:wrap;">
@@ -1225,7 +1226,7 @@
 
         <div class="service-row" data-reveal style="border-bottom:none;">
           <div class="service-num">05</div>
-          <div style="padding-right:40px;">
+          <div>
             <h3 style="font-size:1.375rem;font-weight:600;color:#fff;margin-bottom:12px;">Dirección · Asistencia Creativa</h3>
             <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);margin-bottom:20px;">Si no tienes claro el camino, lo construimos contigo. Definimos estética, concepto y línea visual para que tu marca hable con coherencia.</p>
             <div style="display:flex;gap:8px;flex-wrap:wrap;">
