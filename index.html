@@ -11,10 +11,10 @@
 
   <style>
     :root {
-      --royal: #1B1BF5;
-      --royal-deep: #0D0DAA;
-      --royal-mid: #2626FF;
-      --royal-light: #4545FF;
+      --royal: #2222CC;
+      --royal-deep: #1212A0;
+      --royal-mid: #2828D8;
+      --royal-light: #3838E0;
       --white: #FAFAFA;
       --off: #F0F0F8;
       --bg: #FFFFFF;
@@ -246,7 +246,7 @@
 
     /* ── GRADIENT TEXT ── */
     .gradient-text {
-      background: linear-gradient(135deg, #0D0DAA 0%, #1B1BF5 55%, #4545FF 100%);
+      background: linear-gradient(135deg, #1212A0 0%, #2222CC 55%, #3838E0 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -347,7 +347,7 @@
       font-weight: 500;
       border: 1px solid rgba(27,27,245,0.35);
       background: rgba(27,27,245,0.08);
-      color: #1B1BF5;
+      color: #2222CC;
       letter-spacing: 0.03em;
       transition: background 0.2s, border-color 0.2s;
     }
@@ -382,7 +382,7 @@
       font-size: 0.75rem;
     }
     .tag-price .tag-val {
-      color: #1B1BF5;
+      color: #2222CC;
       font-weight: 800;
     }
     @media (hover: hover) {
@@ -727,6 +727,7 @@
       overflow: hidden;
       position: relative;
       cursor: zoom-in;
+      touch-action: manipulation;
     }
     .catalog-item img {
       width: 100%; height: 100%;
@@ -899,16 +900,18 @@
       }
       .resultados-grid {
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 260px 260px 260px;
+        grid-template-rows: 260px auto;
       }
       .resultados-grid .catalog-item {
         grid-row: span 1 !important;
         grid-column: span 1 !important;
+        aspect-ratio: 4/3;
       }
       /* Primera imagen ocupa columna completa en tablet */
       .resultados-grid .catalog-item:first-child {
         grid-column: span 2 !important;
         grid-row: span 1 !important;
+        aspect-ratio: 16/7;
       }
     }
 
@@ -965,12 +968,19 @@
         margin-bottom: 32px;
       }
 
+      .hero-section {
+        min-height: auto !important;
+        padding-top: 90px !important;
+        padding-bottom: 40px !important;
+        align-items: flex-start !important;
+      }
+
       .service-row {
-        grid-template-columns: 40px 1fr;
-        gap: 16px;
+        grid-template-columns: 1fr;
+        gap: 8px;
         padding: 28px 0;
       }
-      .service-num { font-size: 2rem; }
+      .service-num { font-size: 1.2rem; color: rgba(18,19,23,0.25); margin-bottom: 4px; }
 
       .proceso-grid {
         grid-template-columns: 1fr;
@@ -1014,6 +1024,11 @@
       }
 
       section { padding-top: 72px !important; padding-bottom: 72px !important; }
+
+      .pricing-card { padding: 20px 16px 18px; max-width: 100%; }
+      .pricing-volume-row { grid-template-columns: 1fr 1fr; font-size: 0.75rem; padding: 8px 10px; }
+      .pricing-volume-row.header { grid-template-columns: 1fr 1fr; }
+      .pricing-volume-row .save { display: none; }
 
       .compare-col { padding: 24px 20px; }
 
@@ -1086,7 +1101,7 @@
   </nav>
 
   <!-- ══════════ HERO ══════════ -->
-  <section style="position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding-top:100px;">
+  <section class="hero-section" style="position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding-top:100px;">
     <div class="blob" style="width:900px;height:900px;background:radial-gradient(circle at center,rgba(27,27,245,0.06) 0%,rgba(27,27,245,0.12) 28%,transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);filter:blur(120px);"></div>
 
     <div class="max-w-7xl mx-auto px-6 w-full py-32 hero-grid">
@@ -1160,8 +1175,30 @@
 
   <div class="glow-line"></div>
 
+  <!-- ══════════ STATS STRIP ══════════ -->
+  <section style="padding:80px 0;">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="stats-strip-grid">
+        <div data-reveal style="padding:40px;background:transparent;text-align:center;">
+          <div class="stat-num" style="margin-bottom:10px;display:block;">+<span class="count-up" data-target="75">0</span></div>
+          <p style="font-size:0.875rem;color:#6B7280;">Proyectos completados</p>
+        </div>
+        <div data-reveal data-delay="2" style="padding:40px;background:transparent;text-align:center;">
+          <div class="stat-num" style="margin-bottom:10px;display:block;"><span class="count-up" data-target="5">0</span>–7</div>
+          <p style="font-size:0.875rem;color:#6B7280;">Días hábiles de entrega</p>
+        </div>
+        <div data-reveal data-delay="3" style="padding:40px;background:transparent;text-align:center;">
+          <div class="stat-num" style="margin-bottom:10px;display:block;"><span class="count-up" data-target="100">0</span>%</div>
+          <p style="font-size:0.875rem;color:#6B7280;">Tasa de satisfacción</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
   <!-- ══════════ MARQUEE ══════════ -->
-  <section style="padding:36px 0;overflow:hidden;background:#1B1BF5;">
+  <section style="padding:36px 0;overflow:hidden;background:#2222CC;">
     <p style="text-align:center;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:24px;">Trabajamos con marcas en</p>
     <div style="overflow:hidden;mask:linear-gradient(to right,transparent 0%,black 10%,black 90%,transparent 100%);">
       <div class="marquee-track">
@@ -1188,28 +1225,6 @@
           <span>COSMÉTICA</span><span class="marquee-sep" style="background:rgba(255,255,255,0.4);"></span>
           <span>CALZADO</span><span class="marquee-sep" style="background:rgba(255,255,255,0.4);"></span>
           <span>ACCESORIOS</span><span class="marquee-sep" style="background:rgba(255,255,255,0.4);"></span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- ══════════ STATS STRIP ══════════ -->
-  <section style="padding:80px 0;">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="stats-strip-grid">
-        <div data-reveal style="padding:40px;background:transparent;text-align:center;">
-          <div class="stat-num" style="margin-bottom:10px;display:block;">+<span class="count-up" data-target="75">0</span></div>
-          <p style="font-size:0.875rem;color:#6B7280;">Proyectos completados</p>
-        </div>
-        <div data-reveal data-delay="2" style="padding:40px;background:transparent;text-align:center;">
-          <div class="stat-num" style="margin-bottom:10px;display:block;"><span class="count-up" data-target="5">0</span>–7</div>
-          <p style="font-size:0.875rem;color:#6B7280;">Días hábiles de entrega</p>
-        </div>
-        <div data-reveal data-delay="3" style="padding:40px;background:transparent;text-align:center;">
-          <div class="stat-num" style="margin-bottom:10px;display:block;"><span class="count-up" data-target="100">0</span>%</div>
-          <p style="font-size:0.875rem;color:#6B7280;">Tasa de satisfacción</p>
         </div>
       </div>
     </div>

@@ -1,54 +1,131 @@
-# CLAUDE.md — Frontend Website Rules
+# CLAUDE.md — SAINTS STILLS Web Agent
+
+## Identidad del Proyecto
+- **Marca:** SAINTS STILLS — Agencia de Producción Visual con IA
+- **Tagline:** "Tu catálogo, listo para vender"
+- **Sitio:** `index.html` (single-page, inline styles + Tailwind CDN)
+- **Negocio:** Lima, Perú | WhatsApp: +51 912149320 | @saintstillss
+- **Contexto completo del negocio:** leer `d:\SISTEMA CLAUDE\SAINT STILLS\AGENTES\_contexto-negocio.md` antes de escribir copy, precios o datos del negocio — nunca inventar cifras
+
+---
 
 ## Always Do First
 - **Invoke the `frontend-design` skill** before writing any frontend code, every session, no exceptions.
 
-## Reference Images
-- If a reference image is provided: match layout, spacing, typography, and color exactly. Swap in placeholder content (images via `https://placehold.co/`, generic copy). Do not improve or add to the design.
-- If no reference image: design from scratch with high craft (see guardrails below).
-- Screenshot your output, compare against reference, fix mismatches, re-screenshot. Do at least 2 comparison rounds. Stop only when no visible differences remain or user says so.
+---
 
-## Local Server
-- **Always serve on localhost** — never screenshot a `file:///` URL.
-- Start the dev server: `node serve.mjs` (serves the project root at `http://localhost:3000`)
-- `serve.mjs` lives in the project root. Start it in the background before taking any screenshots.
-- If the server is already running, do not start a second instance.
+## Sistema de Diseño — Brand SAINTS STILLS
 
-## Screenshot Workflow
-- Puppeteer is installed at `C:/Users/nateh/AppData/Local/Temp/puppeteer-test/`. Chrome cache is at `C:/Users/nateh/.cache/puppeteer/`.
-- **Always screenshot from localhost:** `node screenshot.mjs http://localhost:3000`
-- Screenshots are saved automatically to `./temporary screenshots/screenshot-N.png` (auto-incremented, never overwritten).
-- Optional label suffix: `node screenshot.mjs http://localhost:3000 label` → saves as `screenshot-N-label.png`
-- `screenshot.mjs` lives in the project root. Use it as-is.
-- After screenshotting, read the PNG from `temporary screenshots/` with the Read tool — Claude can see and analyze the image directly.
-- When comparing, be specific: "heading is 32px but reference shows ~24px", "card gap is 16px but should be 24px"
-- Check: spacing/padding, font size/weight/line-height, colors (exact hex), alignment, border-radius, shadows, image sizing
+### Paleta (usar estas variables CSS, nunca colores Tailwind por defecto)
+```css
+--royal: #1B1BF5          /* azul primario */
+--royal-deep: #0D0DAA     /* azul oscuro */
+--royal-mid: #2626FF
+--royal-light: #4545FF
+--white: #FAFAFA
+--off: #F0F0F8
+--bg: #FFFFFF
+--bg-2: #F8F9FC
+--text: #121317
+--text-muted: #6B7280
+--border: rgba(18,19,23,0.10)
+```
+Gradiente principal: `linear-gradient(135deg, #0D0DAA 0%, #1B1BF5 55%, #4545FF 100%)`
+
+### Tipografía
+- **Única fuente:** Montserrat (Google Fonts, pesos 300–800) — NO agregar fuentes serif ni alternativas
+- Headings: `clamp()` fluid, `letter-spacing: -0.03em` a `-0.04em`
+- Body: `line-height: 1.7`, `font-size: 1rem`
+
+### Efectos visuales (mantener consistencia con el sitio existente)
+- Noise texture: SVG fractal noise en `body::before`, `opacity: 0.025`
+- Frosted glass: `backdrop-filter: blur(24px)` — nav y modales
+- Blobs decorativos: círculos borrosos posicionados absolutamente para profundidad
+- Sombras: capas con tint azul, baja opacidad (no `shadow-md` plano)
+- Easing: `cubic-bezier(.34,1.56,.64,1)` spring-like — **nunca `transition-all`**
+- Animaciones: solo `transform` y `opacity`
+- Estados interactivos: hover, focus-visible y active en todo elemento clickeable
+
+---
+
+## Assets del Proyecto
+
+**Buscar assets SOLO dentro de `d:\SISTEMA CLAUDE\SAINT STILLS\WEB\` — no explorar otras carpetas.**
+
+```
+brand_assets/logo.jpg              → Logo principal (wave azul, usar siempre en header/footer)
+brand_assets/brand guides.png      → Guía visual completa — leer antes de diseñar
+HERO/HERO.png                      → Hero principal
+HERO/HERO (1).png                  → Variante hero
+HERO/HERO (2).png                  → Variante hero
+HERO/HERO (3).png                  → Variante hero
+RESULTADOS/CATALOGOS ECOMMERCE.png
+RESULTADOS/ASISTENCIA CREATIVA.png
+RESULTADOS/EDITORIAL MODA.png
+RESULTADOS/CAMPAÑAS DE VIDEO.png
+RESULTADOS/PRODUCCIÓN COMPLETA.png
+```
+
+- Usar assets reales siempre que existan — nunca `placehold.co` donde hay imagen real
+- Para imágenes sin asset disponible: `https://placehold.co/WIDTHxHEIGHT`
+
+---
+
+## Estructura del Sitio (secciones en orden)
+
+No crear secciones nuevas ni reordenar sin instrucción explícita del usuario.
+
+1. **Hero** — full-height, stats, CTA principal
+2. **Trust Badge Strip** — marquee azul con palabras clave de servicio
+3. **Intro** — propuesta de valor breve
+4. **Servicios** — 5 filas: Ecommerce, Editorial Moda, Campañas, Video, Dirección Creativa
+5. **Proceso** — pasos numerados del flujo de trabajo
+6. **Resultados** — portfolio usando imágenes de `RESULTADOS/`
+7. **Por qué SAINTS STILLS** — stats y diferenciadores vs. foto tradicional
+8. **Testimonios / Clientes** — logos o quotes
+9. **FAQ** — accordion de preguntas frecuentes
+10. **Instagram CTA** — enlace a @saintstillss
+11. **Contacto** — WhatsApp +51 912149320, trust badges (24h respuesta, 5–7 días entrega)
+12. **Footer** — logo, links, copyright
+
+---
+
+## Datos del Negocio (para copy y FAQ)
+
+Siempre leer `_contexto-negocio.md` para datos actualizados. Valores clave:
+- Precios: S/89–S/199 por producto (según volumen y formato)
+- Entrega: 5–7 días hábiles
+- Ventaja: 80% más económico que foto tradicional, 10× más rápido
+- Formatos: **FORMATO STUDIO** (catálogo limpio) y **FORMATO CREATIVO** (lifestyle, editorial, video)
+- Clientes: moda, calzado, accesorios, cosmética, hogar, gastronomía, tecnología, joyería, packaging, lujo
+
+---
+
+## Servidor Local y Screenshots
+
+- **Servidor:** `node serve.mjs` → `http://localhost:3000` (iniciar en background antes de screenshots)
+- No iniciar segunda instancia si ya corre
+- **Screenshots:** `node screenshot.mjs http://localhost:3000` — guarda en `./temporary screenshots/`
+- Siempre screenshot desde localhost, nunca `file:///`
+- Comparar contra referencia al menos 2 rondas; no parar hasta que no haya diferencias visibles
+
+---
 
 ## Output Defaults
-- Single `index.html` file, all styles inline, unless user says otherwise
-- Tailwind CSS via CDN: `<script src="https://cdn.tailwindcss.com"></script>`
-- Placeholder images: `https://placehold.co/WIDTHxHEIGHT`
+
+- Single `index.html`, todos los estilos inline, salvo que el usuario indique otro approach
+- Tailwind CSS vía CDN: `<script src="https://cdn.tailwindcss.com"></script>`
 - Mobile-first responsive
 
-## Brand Assets
-- Always check the `brand_assets/` folder before designing. It may contain logos, color guides, style guides, or images.
-- If assets exist there, use them. Do not use placeholders where real assets are available.
-- If a logo is present, use it. If a color palette is defined, use those exact values — do not invent brand colors.
+---
 
-## Anti-Generic Guardrails
-- **Colors:** Never use default Tailwind palette (indigo-500, blue-600, etc.). Pick a custom brand color and derive from it.
-- **Shadows:** Never use flat `shadow-md`. Use layered, color-tinted shadows with low opacity.
-- **Typography:** Never use the same font for headings and body. Pair a display/serif with a clean sans. Apply tight tracking (`-0.03em`) on large headings, generous line-height (`1.7`) on body.
-- **Gradients:** Layer multiple radial gradients. Add grain/texture via SVG noise filter for depth.
-- **Animations:** Only animate `transform` and `opacity`. Never `transition-all`. Use spring-style easing.
-- **Interactive states:** Every clickable element needs hover, focus-visible, and active states. No exceptions.
-- **Images:** Add a gradient overlay (`bg-gradient-to-t from-black/60`) and a color treatment layer with `mix-blend-multiply`.
-- **Spacing:** Use intentional, consistent spacing tokens — not random Tailwind steps.
-- **Depth:** Surfaces should have a layering system (base → elevated → floating), not all sit at the same z-plane.
+## Reglas Duras
 
-## Hard Rules
-- Do not add sections, features, or content not in the reference
-- Do not "improve" a reference design — match it
-- Do not stop after one screenshot pass
-- Do not use `transition-all`
-- Do not use default Tailwind blue/indigo as primary color
+- No usar colores Tailwind por defecto (indigo-500, blue-600, etc.) — usar `--royal` y derivados
+- No agregar fuentes distintas a Montserrat
+- No crear secciones nuevas sin instrucción explícita
+- No inventar precios, estadísticas ni datos del negocio — leer `_contexto-negocio.md`
+- No buscar assets fuera de `WEB/`
+- No usar `transition-all`
+- No parar en un solo screenshot pass — mínimo 2 comparaciones
+- No "mejorar" un diseño de referencia — matchearlo exactamente
