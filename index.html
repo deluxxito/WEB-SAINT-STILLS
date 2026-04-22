@@ -980,6 +980,7 @@
         gap: 8px;
         padding: 28px 0;
       }
+      .service-img { display: none; }
       .service-num { font-size: 1.2rem; color: rgba(18,19,23,0.25); margin-bottom: 4px; }
 
       .proceso-grid {
@@ -1842,6 +1843,17 @@
       });
     });
 
+  </script>
+
+  <div id="lightbox" class="lightbox-overlay" role="dialog" aria-modal="true">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Cerrar">&#x2715;</button>
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="" />
+      <p id="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <script>
     // Lightbox
     (function() {
       const overlay  = document.getElementById('lightbox');
@@ -1886,13 +1898,6 @@
     })();
   </script>
 
-  <div id="lightbox" class="lightbox-overlay" role="dialog" aria-modal="true">
-    <button class="lightbox-close" id="lightbox-close" aria-label="Cerrar">&#x2715;</button>
-    <div class="lightbox-content">
-      <img id="lightbox-img" src="" alt="" />
-      <p id="lightbox-caption"></p>
-    </div>
-  </div>
 
 </body>
 </html>
