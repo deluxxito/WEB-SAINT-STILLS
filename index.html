@@ -160,6 +160,36 @@
       cursor: pointer;
       text-decoration: none;
       white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-solid::after {
+      content: '';
+      position: absolute;
+      top: -50%; left: -75%;
+      width: 50%; height: 200%;
+      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.25) 50%, rgba(255,255,255,0) 100%);
+      transform: skewX(-20deg);
+      transition: none;
+      pointer-events: none;
+    }
+    .btn-solid:hover::after {
+      animation: btn-shimmer 0.55s ease forwards;
+    }
+    @keyframes btn-shimmer {
+      0%   { left: -75%; }
+      100% { left: 125%; }
+    }
+    .btn-solid .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.35);
+      transform: scale(0);
+      animation: ripple-expand 0.55s linear;
+      pointer-events: none;
+    }
+    @keyframes ripple-expand {
+      to { transform: scale(4); opacity: 0; }
     }
     .btn-solid:hover {
       background: var(--royal-mid);
@@ -370,6 +400,108 @@
       .tag-price .tag-qty { font-size: 0.73rem; }
     }
 
+    /* ── PRICING CARD ── */
+    .pricing-card {
+      margin-top: 20px;
+      border: 1px solid rgba(27,27,245,0.18);
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(27,27,245,0.05) 0%, rgba(255,255,255,0.6) 100%);
+      backdrop-filter: blur(8px);
+      padding: 28px 28px 24px;
+      max-width: 520px;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .pricing-card:hover {
+      box-shadow: 0 8px 32px rgba(27,27,245,0.12);
+      transform: translateY(-2px);
+    }
+    .pricing-card-header { margin-bottom: 18px; }
+    .pricing-badge {
+      display: inline-block;
+      background: var(--royal);
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      margin-bottom: 12px;
+    }
+    .pricing-from {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+    .pricing-amount {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--royal);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    .pricing-amount span {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0;
+    }
+    .pricing-amount-custom {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    .pricing-volume {
+      margin-bottom: 18px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(27,27,245,0.12);
+    }
+    .pricing-volume-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      padding: 9px 14px;
+      font-size: 0.8rem;
+      border-bottom: 1px solid rgba(27,27,245,0.08);
+    }
+    .pricing-volume-row:last-child { border-bottom: none; }
+    .pricing-volume-row.header {
+      background: rgba(27,27,245,0.06);
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .pricing-volume-row .save { color: #16a34a; font-weight: 700; }
+    .pricing-includes {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 20px;
+    }
+    .pricing-includes li {
+      font-size: 0.85rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .pricing-includes li::before {
+      content: '✓';
+      color: var(--royal);
+      font-weight: 800;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+    .pricing-cta {
+      padding: 11px 24px !important;
+      font-size: 0.82rem !important;
+    }
+
     /* ── TESTIMONIAL SLIDER ── */
     .testimonial-slider { position: relative; overflow: hidden; }
     .testimonial-track {
@@ -542,11 +674,59 @@
       border-bottom: 1px solid rgba(27,27,245,0.12);
     }
 
+    /* ── LIGHTBOX ── */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0,0,0,0.92);
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    .lightbox-overlay.active { display: flex; }
+    .lightbox-content {
+      max-width: 90vw;
+      max-height: 90vh;
+      text-align: center;
+      cursor: default;
+    }
+    .lightbox-content img {
+      max-width: 100%;
+      max-height: 85vh;
+      border-radius: 8px;
+      object-fit: contain;
+      animation: lightboxIn 0.3s ease;
+    }
+    @keyframes lightboxIn {
+      from { opacity: 0; transform: scale(0.92); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    #lightbox-caption {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 12px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px; right: 24px;
+      background: none; border: none;
+      color: white; font-size: 1.8rem;
+      cursor: pointer; opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .lightbox-close:hover { opacity: 1; }
+
     /* ── CATALOG GRID ── */
     .catalog-item {
       border-radius: 16px;
       overflow: hidden;
       position: relative;
+      cursor: zoom-in;
     }
     .catalog-item img {
       width: 100%; height: 100%;
@@ -1059,15 +1239,36 @@
           <div class="service-num">01</div>
           <div>
             <h3 style="font-size:1.375rem;font-weight:600;color:#111;margin-bottom:12px;">Ecommerce · Catálogos de Producto</h3>
-            <p style="font-size:0.9rem;color:#6B7280;margin-bottom:20px;">Imágenes de producto sobre fondo limpio o en escena, con luz, sombras y ángulos profesionales. Desde S/89 por producto según volumen.</p>
-            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;">
-              <span class="tag-price"><span class="tag-qty">5–10 pcs</span><span class="tag-val">S/99</span><span class="tag-qty">por producto</span></span>
-              <span class="tag-price"><span class="tag-qty">10–15 pcs</span><span class="tag-val">S/95</span><span class="tag-qty">por producto</span></span>
-              <span class="tag-price"><span class="tag-qty">15–20 pcs</span><span class="tag-val">S/89</span><span class="tag-qty">por producto</span></span>
+            <p style="font-size:0.9rem;color:#6B7280;margin-bottom:20px;">Imágenes de producto sobre fondo limpio o en escena, con luz, sombras y ángulos profesionales. Precio escala con volumen.</p>
+            <div class="pricing-card">
+              <div class="pricing-card-header">
+                <span class="pricing-badge">Más popular</span>
+                <p class="pricing-from">Desde</p>
+                <p class="pricing-amount">S/99 <span>por producto</span></p>
+              </div>
+              <div class="pricing-volume">
+                <div class="pricing-volume-row header">
+                  <span>Volumen</span><span>Precio/producto</span>
+                </div>
+                <div class="pricing-volume-row">
+                  <span>5–10 productos</span><span>S/99</span>
+                </div>
+                <div class="pricing-volume-row">
+                  <span>10+ productos</span><span>S/89</span>
+                </div>
+              </div>
+              <ul class="pricing-includes">
+                <li>6 fotos por producto (ángulos y planos incluidos)</li>
+                <li>Modelo IA personalizado a tu marca</li>
+                <li>Fondo neutro, blanco o escena minimalista</li>
+                <li>Iluminación, sombras y retoque profesional</li>
+                <li>Entrega en 3 a 5 días hábiles · Alta resolución</li>
+              </ul>
+              <a href="https://wa.me/51912149320?text=Hola,%20quiero%20cotizar%20un%20catálogo%20de%20producto" class="btn-solid pricing-cta">Cotizar ahora →</a>
             </div>
           </div>
           <div class="service-img">
-            <img src="https://placehold.co/600x450/0a0a20/1B1BF5?text=." alt="Catálogos de Producto" />
+            <img src="https://placehold.co/600x450/F0F0FF/1B1BF5?text=." alt="Catálogos de Producto" />
             <div class="img-overlay"></div>
           </div>
         </div>
@@ -1076,15 +1277,24 @@
           <div class="service-num">02</div>
           <div>
             <h3 style="font-size:1.375rem;font-weight:600;color:#111;margin-bottom:12px;">Editorial · Producción de Moda</h3>
-            <p style="font-size:0.9rem;color:#6B7280;margin-bottom:20px;">Desde S/199 por producto. Incluye fondo personalizado + 3 modelos. Defines el mood, nosotros ejecutamos la sesión entera.</p>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;">
-              <span class="tag">Fondo personalizado</span>
-              <span class="tag">3 modelos incluidos</span>
-              <span class="tag">Dirección creativa</span>
+            <p style="font-size:0.9rem;color:#6B7280;margin-bottom:20px;">Defines el mood, nosotros ejecutamos la sesión entera con fondo personalizado y modelos incluidos.</p>
+            <div class="pricing-card">
+              <div class="pricing-card-header">
+                <p class="pricing-from">Desde</p>
+                <p class="pricing-amount">S/199 <span>por producto</span></p>
+              </div>
+              <ul class="pricing-includes">
+                <li>6 fotos por producto (ángulos y planos incluidos)</li>
+                <li>Hasta 3 modelos IA personalizados</li>
+                <li>Escenas personalizadas para tu marca</li>
+                <li>Iluminación, sombras y retoque profesional</li>
+                <li>Entrega en 7 a 10 días hábiles · Alta resolución</li>
+              </ul>
+              <a href="https://wa.me/51912149320?text=Hola,%20me%20interesa%20producción%20editorial%20de%20moda" class="btn-solid pricing-cta">Cotizar ahora →</a>
             </div>
           </div>
           <div class="service-img">
-            <img src="https://placehold.co/600x450/080818/0D0DAA?text=." alt="Producción de Moda" />
+            <img src="https://placehold.co/600x450/F0F0FF/1B1BF5?text=." alt="Producción de Moda" />
             <div class="img-overlay"></div>
           </div>
         </div>
@@ -1094,15 +1304,21 @@
           <div>
             <h3 style="font-size:1.375rem;font-weight:600;color:#111;margin-bottom:12px;">Campaña · Producción Completa</h3>
             <p style="font-size:0.9rem;color:#6B7280;margin-bottom:20px;">Concepto, ejecución y piezas alineadas a tu marca. Desde la idea hasta el arte final, todo bajo una dirección integral.</p>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;">
-              <span class="tag">Cotización personalizada</span>
-              <span class="tag">Visual system</span>
-              <span class="tag">Múltiples piezas</span>
-              <span class="tag">Dirección integral</span>
+            <div class="pricing-card">
+              <div class="pricing-card-header">
+                <p class="pricing-amount-custom">Precio a medida</p>
+              </div>
+              <ul class="pricing-includes">
+                <li>Concepto y visual system</li>
+                <li>Múltiples piezas coordinadas</li>
+                <li>Dirección creativa integral</li>
+                <li>Arte final listo para campaña</li>
+              </ul>
+              <a href="https://wa.me/51912149320?text=Hola,%20quiero%20cotizar%20una%20campaña%20de%20producción%20completa" class="btn-solid pricing-cta">Cotizar ahora →</a>
             </div>
           </div>
           <div class="service-img">
-            <img src="https://placehold.co/600x450/06061a/2626FF?text=." alt="Campaña · Producción Completa" />
+            <img src="https://placehold.co/600x450/F0F0FF/1B1BF5?text=." alt="Campaña · Producción Completa" />
             <div class="img-overlay"></div>
           </div>
         </div>
@@ -1112,15 +1328,21 @@
           <div>
             <h3 style="font-size:1.375rem;font-weight:600;color:#111;margin-bottom:12px;">Video · Short Campaigns IA</h3>
             <p style="font-size:0.9rem;color:#6B7280;margin-bottom:20px;">Piezas visuales con narrativa, pensadas para elevar tu contenido. Del guión visual a la edición final, en formato para redes.</p>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;">
-              <span class="tag">Cotización personalizada</span>
-              <span class="tag">Guión visual</span>
-              <span class="tag">Dirección de escenas</span>
-              <span class="tag">Edición final</span>
+            <div class="pricing-card">
+              <div class="pricing-card-header">
+                <p class="pricing-amount-custom">Precio a medida</p>
+              </div>
+              <ul class="pricing-includes">
+                <li>Guión visual y storyboard</li>
+                <li>Dirección de escenas IA</li>
+                <li>Edición final + color grading</li>
+                <li>Formato optimizado para redes</li>
+              </ul>
+              <a href="https://wa.me/51912149320?text=Hola,%20quiero%20cotizar%20una%20campaña%20de%20video%20con%20IA" class="btn-solid pricing-cta">Cotizar ahora →</a>
             </div>
           </div>
           <div class="service-img">
-            <img src="https://placehold.co/600x450/050512/1414CC?text=." alt="Video · Short Campaigns IA" />
+            <img src="https://placehold.co/600x450/F0F0FF/1B1BF5?text=." alt="Video · Short Campaigns IA" />
             <div class="img-overlay"></div>
           </div>
         </div>
@@ -1130,15 +1352,22 @@
           <div>
             <h3 style="font-size:1.375rem;font-weight:600;color:#111;margin-bottom:12px;">Dirección · Asistencia Creativa</h3>
             <p style="font-size:0.9rem;color:#6B7280;margin-bottom:20px;">Si no tienes claro el camino, lo construimos contigo. Definimos estética, concepto y línea visual para que tu marca hable con coherencia.</p>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;">
-              <span class="tag">Cotización personalizada</span>
-              <span class="tag">Concepto</span>
-              <span class="tag">Mood</span>
-              <span class="tag">Sistema visual</span>
+            <div class="pricing-card">
+              <div class="pricing-card-header">
+                <p class="pricing-from">Desde</p>
+                <p class="pricing-amount">S/49 <span>/ hora</span></p>
+              </div>
+              <ul class="pricing-includes">
+                <li>Definición de estética y mood</li>
+                <li>Concepto de marca visual</li>
+                <li>Sistema visual coherente</li>
+                <li>Acompañamiento en cada etapa</li>
+              </ul>
+              <a href="https://wa.me/51912149320?text=Hola,%20quiero%20asistencia%20creativa%20para%20mi%20marca" class="btn-solid pricing-cta">Cotizar ahora →</a>
             </div>
           </div>
           <div class="service-img">
-            <img src="https://placehold.co/600x450/07071a/2020E0?text=." alt="Dirección · Asistencia Creativa" />
+            <img src="https://placehold.co/600x450/F0F0FF/1B1BF5?text=." alt="Dirección · Asistencia Creativa" />
             <div class="img-overlay"></div>
           </div>
         </div>
@@ -1584,7 +1813,71 @@
       const diff = touchStartX - e.changedTouches[0].clientX;
       if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
     }, { passive: true });
+
+    /* ── RIPPLE ── */
+    document.querySelectorAll('.btn-solid').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        const ripple = document.createElement('span');
+        ripple.classList.add('ripple');
+        const rect = btn.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        ripple.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX - rect.left - size / 2}px;top:${e.clientY - rect.top - size / 2}px;`;
+        btn.appendChild(ripple);
+        ripple.addEventListener('animationend', () => ripple.remove());
+      });
+    });
+
+    // Lightbox
+    (function() {
+      const overlay  = document.getElementById('lightbox');
+      const img      = document.getElementById('lightbox-img');
+      const caption  = document.getElementById('lightbox-caption');
+      const btnClose = document.getElementById('lightbox-close');
+      const items    = Array.from(document.querySelectorAll('.catalog-item'));
+      let current = 0;
+      let touchStartX = 0;
+
+      function open(index) {
+        current = index;
+        const item = items[current];
+        img.src = item.querySelector('img').src;
+        img.alt = item.querySelector('.catalog-label')?.textContent || '';
+        caption.textContent = img.alt;
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      function close() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+        img.src = '';
+      }
+      function prev() { open((current - 1 + items.length) % items.length); }
+      function next() { open((current + 1) % items.length); }
+
+      items.forEach((item, i) => item.addEventListener('click', () => open(i)));
+      btnClose.addEventListener('click', close);
+      overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+      document.addEventListener('keydown', (e) => {
+        if (!overlay.classList.contains('active')) return;
+        if (e.key === 'Escape')     close();
+        if (e.key === 'ArrowLeft')  prev();
+        if (e.key === 'ArrowRight') next();
+      });
+      overlay.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+      overlay.addEventListener('touchend', (e) => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) diff > 0 ? next() : prev();
+      });
+    })();
   </script>
+
+  <div id="lightbox" class="lightbox-overlay" role="dialog" aria-modal="true">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Cerrar">&#x2715;</button>
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="" />
+      <p id="lightbox-caption"></p>
+    </div>
+  </div>
 
 </body>
 </html>
